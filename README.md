@@ -38,8 +38,8 @@
 Перед запуском необходимо ввести ваш email и пароль (для mail.ru пароль внешних приложений) 
 в файле /server/ai-host/host.py 
 ```python
-email_sender = "your_email"
-password = "your_password_for_external_applications_email"
+12. email_sender = "your_email"
+13. password = "your_password_for_external_applications_email"
 ```
 
 Затем запустить командой
