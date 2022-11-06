@@ -1,0 +1,45 @@
+<section class="container project-feed">
+
+    <div class="head">
+        <h1>Мои проекты</h1>
+    </div>
+
+    <section class="feed">
+        <div class="card" *ngFor="let item of feed; let i = index">
+            <div class="card-image">
+                <img src="../../../assets/images/фото_карточка.png"/>
+            </div>
+            <div class="card-info">
+                <div class="card-header">
+                    <h2>{{item.title}}</h2>
+                    <span class="badges">
+                        <span class="badge">
+                            <img src="../../../assets/images/инновация.png" />
+                            <span class="number red">{{item.innovation}}</span>
+                            <span class="desc red">Инновация</span>
+                        </span>
+                        <span class="badge">
+                            <img src="../../../assets/images/реализация.png" />
+                            <span class="number blue">{{item.realization}}</span>
+                            <span class="desc blue">Реализация</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="card-main">
+                    <p>{{item.category}}</p>
+                    <p>Авторы: {{item.authors.join(', ')}}</p>
+                    <p>Стадия: <span class="green">{{item.stage}}</span></p>
+                </div>
+                <div class="card-btns">
+                    <button>
+                        Редактировать
+                    </button>
+                    <button (click)="openProject()">
+                        Открыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>

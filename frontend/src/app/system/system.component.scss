@@ -1,0 +1,25 @@
+@import "../../styles.scss";
+main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100%;
+}
+.content {
+  flex: 1 0 auto;
+}
+@media (min-width: 320px) {
+  .content {
+    margin-top: $heightHeaderMin;
+  }
+}
+@media (min-width: 768px) {
+  .content {
+    margin-top: $heightHeaderMiddle;
+  }
+}
+@media (min-width: 1024px) {
+  .content {
+    margin-top: $heightHeaderMax;
+  }
+}

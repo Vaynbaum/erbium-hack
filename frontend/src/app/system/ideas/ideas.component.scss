@@ -1,0 +1,130 @@
+.block {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  row-gap: 30px;
+
+  .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .content {
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    .col-left,
+    .categories {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  }
+}
+@media (min-width: 320px) {
+  .block {
+    .content {
+      row-gap: 15px;
+      flex-direction: column;
+    }
+    mat-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      .col-right {
+        .photo {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    width: 90%;
+    .header {
+      mat-card-title {
+        font-size: 15px;
+      }
+    }
+    mat-card-title {
+      font-size: 14px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .block {
+    .content {
+      mat-card {
+        display: flex;
+        flex-direction: row;
+        .col-left {
+          justify-content: space-between;
+        }
+
+        .col-left,
+        .col-right {
+          width: calc(100% / 2);
+        }
+
+        .col-right {
+          .photo {
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            img {
+              width: auto;
+              height: 100%;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    width: 90%;
+    mat-card {
+      width: calc(50% - 15px);
+    }
+    .header {
+      mat-card-title {
+        font-size: 20px;
+      }
+    }
+    mat-card-title {
+      font-size: 18px;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .block {
+    .content {
+      mat-card {
+        .col-right {
+          .photo {
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            img {
+              width: auto;
+              height: 100%;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+
+    width: 90%;
+  }
+}

@@ -1,0 +1,176 @@
+<section class="container projects">
+    <div class="main-block">
+        <div class="main">
+            <div class="first">
+                <img src="../../../assets/images/мои_проекты_фото.png" />
+                <a>Скачать презентацию</a>
+            </div>
+            <div class="second">
+                <h2>Автоматизированная система по расчету ресурсов производства</h2>
+                <div class="state-info">
+                    <p><span class="underlined">Доступ</span>: доступна всем</p>
+                    <p><span class="underlined">Статус</span>: идея</p>
+                    <p><span class="underlined">Авторы</span>: Иванов Сергей</p>
+                </div>
+            </div>
+        </div>
+        <button>
+            Редактировать
+        </button>
+    </div>
+    <div class="category-block">
+        <p class="large-text"><span class="underlined">Категория</span>: промышленность</p>
+        <button>
+            Добавить категорию
+        </button>
+    </div>
+    <div class="desc-block">
+        <p class="large-text"><span class="underlined">Описание</span>:</p>
+        <p class="large-text">
+            Цель нашей системы автоматизация производства за счет правильного распределения ресурсов (включая ресурсы на
+            мотивационную стратегию)
+        </p>
+    </div>
+
+    <div class="btns-block">
+        <button>
+            Добавить участника
+        </button>
+        <button>
+            Анализ проекта
+        </button>
+        <button>
+            Запросить экспертизу
+        </button>
+    </div>
+
+    <hr class="line" />
+
+    <div class="effects-block">
+        <div class="first-effect">
+            <div class="effect">
+                <span class="effect-info">
+                    <img src="../../../assets/images/инновация.png" />
+                    <span>71 чел.</span>
+                </span>
+                <span>Инновационность</span>
+            </div>
+            <div class="effect">
+                <span class="effect-info">
+                    <img src="../../../assets/images/финансирование.png" />
+                    <span>45%</span>
+                </span>
+                <span>Финансирование</span>
+            </div>
+            <div class="effect">
+                <span class="effect-info">
+                    <img src="../../../assets/images/реализация.png" />
+                    <span>87 чел.</span>
+                </span>
+                <span>Реализация проекта</span>
+            </div>
+            <div class="effect">
+                <span class="effect-info">
+                    <img src="../../../assets/images/софинансирование.png" />
+                    <span>65%</span>
+                </span>
+                <span>Софинансирование</span>
+            </div>
+        </div>
+        <hr />
+        <div class="second-effect">
+            <h2>Социальный эффект</h2>
+            <span class="effect-item">
+                <img src="../../../assets/images/галочка.png" />
+                Защита прав сотрудников
+            </span>
+            <span class="effect-item">
+                <img src="../../../assets/images/галочка.png" />
+                Мотивационная стратегия, направленная на поощрение сотрудников
+            </span>
+        </div>
+    </div>
+
+    <hr class="line" />
+
+    <div class="info-block">
+        <h1>Информация по проекту</h1>
+        <div class="info-btns">
+            <button>Паспорт проекта</button>
+            <button>Бизнес-модель</button>
+        </div>
+    </div>
+
+    <hr class="line" />
+
+    <div class="marks-block">
+        <h1>Оценки экспертов</h1>
+        <div class="marks">
+            <span class="mark">
+                <span>Цветочная А.Б.</span>
+                <span class="mark-link underlined">оценочный лист</span>
+            </span>
+            <span class="mark">
+                <span>Цветочная А.Б.</span>
+                <span class="mark-link underlined">оценочный лист</span>
+            </span>
+        </div>
+    </div>
+
+    <hr class="line" />
+
+    <div class="ideas-block">
+        <h2>Похожие идеи</h2>
+        <div class="carousel">
+            <div class="arrow" (click)="goToPrev()">
+                <img src="assets/images/arrow.png" />
+            </div>
+            <div id='carousel' class="carousel-items">
+                <div *ngFor="let item of places; let i = index" id="{{'item' + '_' + i}}" class="card">
+                    <div class="card-image">
+                        <img src="../../../assets/images/фото_карточка.png" />
+                    </div>
+                    <div class="card-info">
+                        <div class="card-header">
+                            <h2>{{item.title}}</h2>
+                        </div>
+                        <div class="card-main">
+                            <p>{{item.category}}</p>
+                            <p>Авторы: {{item.authors.join(', ')}}</p>
+                            <p>Стадия: <span class="green">{{item.stage}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow right-arrow" (click)="goToNext()">
+                <img src="assets/images/arrow.png" />
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="line" />
+
+    <div class="reviews-block">
+        <h2>Отзывы по проекту</h2>
+        <div class="reviews">
+            <section *ngFor="let item of reviews" class="review">
+                <div class="review-first">
+                    <img src="../../../assets/images/{{item.gender}}.png" />
+                    <div class="review-info">
+                        <div class="user-name">
+                            <span class="name">{{item.name}}</span>
+                            <span class="role">{{item.role}}</span>
+                        </div>
+                        <p class="review-text">{{item.text}}</p>
+                        <p class="answer">Ответить</p>
+                    </div>
+                </div>
+                <span class="review-date">
+                    {{item.date}}
+                </span>
+            </section>
+        </div>
+    </div>
+
+</section>

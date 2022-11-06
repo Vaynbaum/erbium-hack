@@ -1,0 +1,165 @@
+button[disabled] {
+  cursor: no-drop;
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 20%), 0px 0px 0px 0px rgb(0 0 0 / 14%),
+    0px 0px 0px 0px rgb(0 0 0 / 12%);
+}
+.save-btn {
+  background-color: #fd0c50;
+}
+.block {
+  .mat-form-field-flex {
+    border: 1px solid #3a0bbf;
+    border-radius: 5px;
+  }
+  .button-group {
+    display: flex;
+  }
+
+  .option-title {
+    mat-card-title {
+      border-bottom: 2px solid #3a0bbf;width: fit-content;
+    }
+  }
+
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 100%;
+  .full-info,
+  .contact,
+  .education,
+  .work {
+    .group-hack {
+      display: flex;
+      width: 100%;
+    }
+    .fileds {
+      display: flex;
+      width: 100%;
+    }
+    .group-now-Moscow {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .group-intel-own {
+      width: 100%;
+      .chip-list {
+        width: 100%;
+      }
+    }
+    .group {
+      .inp-filed {
+        mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .inp-filed {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+      }
+    }
+  }
+
+  .img-main-info {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    .user-image {
+      border-radius: 50%;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      .role-chip-list {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) {
+  .option-title {
+    mat-card-title {
+      font-size: 15px;
+    }
+    width: 90%;
+  }
+  .block {
+    .button-group {
+      flex-direction: column;
+      row-gap: 15px;
+      width: 90%;
+    }
+    .accordion,
+    .user-info {
+      width: 90%;
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .education {
+      .group-education {
+        .inp-filed {
+          width: 100%;
+        }
+      }
+    }
+    .contact {
+      .inp-filed {
+        width: 100%;
+      }
+    }
+    .work {
+      .group-work {
+        width: 100%;
+      }
+      .fileds,
+      .group-hack {
+        flex-direction: column;
+        .inp-filed {
+          width: 100%;
+        }
+      }
+      .inp-filed {
+        width: 100%;
+      }
+    }
+    .full-info {
+      .group-fullname,
+      .group-position,
+      .group-contact {
+        .inp-filed {
+          width: 100%;
+        }
+      }
+      .group-position {
+        padding-top: 15px;
+      }
+    }
+    .img-main-info {
+      width: 100%;
+      mat-chip,
+      input {
+        font-size: 12px;
+      }
+      flex-direction: column;
+      .user-image {
+        width: 100px;
+      }
+    }
+  }
+}

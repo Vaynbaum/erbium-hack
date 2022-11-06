@@ -1,0 +1,178 @@
+
+$heightHeaderMax: 80px;
+$heightHeaderMiddle: 70px;
+$heightHeaderMin: 60px;
+$heightFooterMax: 130px;
+$heightFooterMiddle: 100px;
+$heightFooterMin: 60px;
+$colorBackgroundDarkBlue: linear-gradient(90.47deg, #020633 0%, #1a0f91 54.17%);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+button {
+  cursor: pointer;
+  font-size: 19px;
+  border: none;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+// @media (min-width: 1440px) {
+//   .container {
+//     width: 1300px;
+//   }
+// }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) and (min-width: 0px) {
+  .container {
+    width: 90% !important;
+  }
+}
+
+.finder {
+  position: relative;
+}
+
+.finder img {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.select {
+  position: relative;
+}
+
+.select input {
+  cursor: pointer;
+}
+
+.select img {
+  height: .4rem;
+  position: absolute;
+  right: 1rem;
+  top: 44%;
+  transform: rotate(0);
+  transition: transform .5s;
+}
+
+.finder input, .select input {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 1rem;
+  padding-right: 2.2rem;
+  border: 1px solid #FD0C50;
+  border-radius: 5px;
+  outline: none;
+}
+
+.finder input:disabled, .select input:disabled {
+  border-color: #AFAFAF;
+}
+
+.drop {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  height: 0;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  overflow-y: hidden;
+  transition: height .5s, border-color 1s;
+  z-index: 999;
+  background-color: white;
+}
+
+.drop p {
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0;
+  padding: .5rem 1rem .5rem 1rem;
+}
+
+.drop p:hover {
+  background-color: #FD0C50;
+  color: white;
+}
+
+.showed {
+  height: 200px !important;
+  overflow-y: scroll;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-color: #fd0c50 !important;
+  transition: height .5s, border-color .1s;
+}
+
+.arrowUp {
+  transform: rotate(180deg) !important;
+  transition: transform .5s;
+}
+
+.icon-btn {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #FD0C50;
+  border-radius: 5px;
+  position: relative;
+}
+
+.icon-btn img {
+  width: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

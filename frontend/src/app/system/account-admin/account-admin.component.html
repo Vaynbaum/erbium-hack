@@ -1,0 +1,29 @@
+<div class="block">
+  <div class="option-title">
+    <mat-card-title>
+      Аналитика проектов
+    </mat-card-title>
+  </div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Направление</mat-label>
+      <input type="text" placeholder="Выберите направление" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete (optionSelected)="selectedCategory($event)" #auto="matAutocomplete">
+        <mat-option *ngFor="let d of data" [value]="d.tag">
+          {{d.tag}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+  </form>
+
+  <div class="chart">
+    <google-chart [type]="chart.type" [data]="chart.data" [columns]="chart.columns" [title]="chart.title"
+      [options]="chart.opt">
+    </google-chart>
+  </div>
+
+  <button mat-raised-button (click)="logout()" [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Выйти из
+    аккаунта</button>
+</div>

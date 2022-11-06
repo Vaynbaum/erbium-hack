@@ -1,0 +1,100 @@
+<section class="container project-feed">
+
+    <div class="head">
+        <h1>Все проекты</h1>
+    </div>
+
+    <div class="filters">
+        <div class="item finder">
+            <img id="finder-icon" src='../../../assets/images/лупа.png' />
+            <input id="name-input" type="text" placeholder="Поиск по имени" (input)="onNameChange($event)"
+                [value]="nameValue" />
+            <div id="drop" class="drop" [ngClass]="{showed: namesFilter.length != 0}">
+                <p id="drop-options" *ngFor="let item of namesFilter" (click)="setName(item)">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: trendFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="trend-input" type="text" placeholder="Направление" readonly (click)="trendFilter = trend"
+                [value]="trendValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: trendFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of trend" (click)="setTrend(item)"
+                    [ngClass]="{chosen: trendValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: stageFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="stage-input" type="text" placeholder="Стадия" readonly (click)="stageFilter = stage"
+                [value]="stageValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: stageFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of stageFilter" (click)="setStage(item)"
+                    [ngClass]="{chosen: stageValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: statusFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="city-input" type="text" placeholder="Статус" readonly (click)="statusFilter = status"
+                [value]="statusValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: statusFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of statusFilter" (click)="setCity(item)"
+                    [ngClass]="{chosen: statusValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <button class="icon-btn" (click)="reset()">
+            <img src='../../../assets/images/очистить.png' />
+        </button>
+        <button class="icon-btn" >
+            <img src='../../../assets/images/галочка.png' />
+        </button>
+    </div>
+
+    <section class="feed">
+        <div class="card" *ngFor="let item of feed; let i = index">
+            <div class="card-image">
+                <img [src]="item.url"/>
+            </div>
+            <div class="card-info">
+                <div class="card-header">
+                    <h2>{{item.title}}</h2>
+                    <span class="badges">
+                        <span class="badge">
+                            <img src="../../../assets/images/инновация.png" />
+                            <span class="number red">{{item.innovation}}</span>
+                            <span class="desc red">Инновация</span>
+                        </span>
+                        <span class="badge">
+                            <img src="../../../assets/images/реализация.png" />
+                            <span class="number blue">{{item.realization}}</span>
+                            <span class="desc blue">Реализация</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="card-main">
+                    <p>{{item.category}}</p>
+                    <p>Авторы: {{item.authors.join(', ')}}</p>
+                    <p>Стадия: <span class="green">{{item.stage}}</span></p>
+                </div>
+                <div class="card-btns">
+                    <button>
+                        Подать заявку
+                    </button>
+                    <button>
+                        Отзыв
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>

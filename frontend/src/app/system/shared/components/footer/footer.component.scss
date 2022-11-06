@@ -1,0 +1,56 @@
+@import "../../../../../styles.scss";
+footer {
+  display: flex;
+  background: $colorBackgroundDarkBlue;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.top,
+.bottom {
+  color: white;
+  display: flex;
+}
+
+@media (min-width: 320px) {
+  footer {
+    min-height: $heightFooterMin;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .top,
+  .bottom {
+    flex-basis: 35%;
+    row-gap: 10px;
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 768px) {
+  footer {
+    min-height: $heightFooterMiddle;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top,
+  .bottom {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+    align-items: center;
+  }
+}
+@media (min-width: 1024px) {
+  footer {
+    min-height: $heightFooterMax;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top,
+  .bottom {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+  }
+}

@@ -1,0 +1,135 @@
+@media (min-width: 768px) {
+  .block {
+    .option-title {
+      mat-card-title {
+        font-size: 20px;
+      }
+      width: 80%;
+    }
+    .button-group {
+      flex-direction: row;
+      column-gap: 5%;
+      justify-content: center;
+      width: 80%;
+    }
+    .user-info {
+      width: 70%;
+    }
+    .accordion {
+      width: 80%;
+      form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .contact {
+      .inp-filed {
+        width: calc(98% / 2);
+      }
+    }
+    .work {
+      .group-work {
+        .fileds {
+          width: 100%;
+          .inp-filed {
+            width: calc(98% / 2);
+          }
+        }
+      }
+      .group-hack {
+        align-items: center;
+        button {
+          margin-top: 10px;
+        }
+      }
+      .fileds,
+      .group-hack {
+        justify-content: space-between;
+        flex-direction: row;
+        button {
+          padding: 0;
+          height: 55px;
+        }
+        .inp-filed {
+          width: calc(84% / 2);
+        }
+      }
+      .inp-filed {
+        width: calc(98% / 2);
+      }
+    }
+    .education {
+      .group-education {
+        .inp-filed {
+          width: calc(96% / 3);
+        }
+      }
+    }
+    .full-info {
+      .group-fullname,
+      .group-position {
+        .inp-filed {
+          width: calc(96% / 3);
+        }
+      }
+
+      .group-birth-gender {
+        .birth {
+          width: 75%;
+        }
+        .gender {
+          height: 56%;
+          button {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .img-main-info {
+      width: 80%;
+      mat-chip,
+      input {
+        font-size: 14px;
+      }
+      flex-direction: row;
+      .user-image {
+        width: 150px;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .block {
+    .contact {
+      .inp-filed {
+        width: calc(98% / 2);
+      }
+    }
+    .work {
+      .fileds,
+      .group-hack {
+        .inp-filed {
+          width: calc(88% / 2);
+        }
+      }
+    }
+    .full-info {
+      .group-fullname,
+      .group-position {
+        .inp-filed {
+          width: calc((96% / 3));
+        }
+      }
+      .group-birth-gender .birth {
+        width: 81%;
+      }
+    }
+    .img-main-info {
+      flex-direction: row;
+      .user-image {
+        width: 200px;
+      }
+    }
+  }
+}

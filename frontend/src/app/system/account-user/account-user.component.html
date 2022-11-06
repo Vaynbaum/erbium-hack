@@ -1,0 +1,352 @@
+<div class="block">
+  <div class="img-main-info">
+    <img class="user-image" [src]="compileUrl(user?.url)">
+    <div class="user-info">
+      <div class="fullname" [ngStyle]="{'font-size':'20px'}">
+        <b>{{user?.lastname}} {{user?.firstname}} {{user?.patronymic}}</b>
+      </div>
+      <div class="chips">
+        <mat-form-field class="role-chip-list" appearance="standard">
+          <mat-label>Роли пользователя</mat-label>
+          <mat-chip-list #chipListRole aria-label="Выбор ролей">
+            <mat-chip [ngStyle]="{'background-color':'#673ab7', 'color':'#fff'}" *ngFor="let role of roleUser"
+              color="primary" selected (removed)="removeRole(role)">
+              {{role.teamRole?.name}}
+              <button matChipRemove [ngStyle]="{'background-color':'#673ab7','color':'#fff'}">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Новая роль..." #roleInput [formControl]="teamRoleCtrl" [matAutocomplete]="autoRole"
+              [matChipInputFor]="chipListRole" [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+          </mat-chip-list>
+          <mat-autocomplete #autoRole="matAutocomplete" (optionSelected)="selectedRole($event)">
+            <mat-option *ngFor="let role of allRolesUserFiltered | async" [value]="role.name">
+              {{role.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="role-chip-list" appearance="standard">
+          <mat-label>Навыки</mat-label>
+          <mat-chip-list #chipListSkill aria-label="Выбор ролей">
+            <mat-chip [ngStyle]="{'background-color':'#673ab7','color':'#fff'}" *ngFor="let skill of skillsUser"
+              (removed)="removeSkill(skill)">
+              {{skill.skill?.name}}
+              <button matChipRemove [ngStyle]="{'background-color':'#673ab7','color':'#fff'}">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Новый навык..." #skillInput [formControl]="skillCtrl" [matAutocomplete]="autoSkill"
+              [matChipInputFor]="chipListSkill" [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+          </mat-chip-list>
+          <mat-autocomplete #autoSkill="matAutocomplete" (optionSelected)="selectedSkill($event)">
+            <mat-option *ngFor="let skill of allSkillsFiltered | async" [value]="skill.name">
+              {{skill.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <mat-accordion class="full-info accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Основная информация
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-fullname group" [formGroup]="mainInfoFormGroup">
+        <div class="inp-filed" *ngFor="let input of inputs">
+          <label>{{input.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [formControl]="input.formControl"
+              [placeholder]="input.placeholder? input.placeholder: ''">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+            <mat-error *ngIf="input.formControl.invalid && input.formControl.touched">
+              {{ input?.messageError() }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <form [formGroup]="genderBirthFormGroup" class="group-birth-gender group">
+        <div class="inp-filed birth">
+          <label>Дата рождения</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="birthday" placeholder="Введите дату рождения..." [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="inp-filed ">
+          <label>Пол</label>
+          <div class="gender">
+            <button mat-flat-button (click)="toggle(true)" [color]="genderFlag? 'primary':''">М</button>
+            <button mat-flat-button (click)="toggle(false)" [color]="!genderFlag? 'primary':''">Ж</button>
+          </div>
+        </div>
+      </form>
+
+      <form class="group-position group" [formGroup]="positionFormGroup">
+        <div class="inp-filed" *ngFor="let input of autocompletes">
+          <mat-label>{{input.label}}</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [placeholder]="input.placeholder" [matAutocomplete]="auto"
+              [formControl]="input.formControl">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option (click)="onSelectCountry(input.field, value)" class="option"
+                *ngFor="let value of input.values | async" [value]="value.name">
+                <img class="option-img" aria-hidden *ngIf="value.url" [src]="value.url" height="25" width="50">
+                <span>{{value.name}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="input.formControl.invalid && input.formControl.touched">
+              {{ input?.messageError() }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="contact accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Контакты
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-contact group" [formGroup]="contactFormGroup">
+        <div class="inp-filed" *ngFor="let input of contacts">
+          <label>{{input.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [placeholder]="input.placeholder" [formControl]="input.formControl"
+              [placeholder]="input.placeholder? input.placeholder: ''">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+            <mat-error *ngIf="input.formControl.invalid && input.formControl.touched">
+              {{ input?.messageError() }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="education accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Образование
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-education group" [formGroup]="educationFormGroup">
+        <div class="inp-filed" *ngFor="let input of educations">
+          <mat-label>{{input.label}}</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [matAutocomplete]="autoEducation" [formControl]="input.formControl">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon">
+            </mat-icon>
+            <mat-autocomplete #autoEducation="matAutocomplete">
+              <mat-option class="option" *ngFor="let value of input.values | async" [value]="value.name">
+                <span>{{value.name}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="input.formControl.invalid && input.formControl.touched">
+              {{ input?.messageError() }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inp-filed year_edu">
+          <label>{{yearGraduationInput.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="yearGraduationInput.type" [formControl]="yearGraduationInput.formControl">
+            <mat-icon matSuffix *ngIf="yearGraduationInput.icon" [fontIcon]="yearGraduationInput.icon"></mat-icon>
+            <mat-error *ngIf="yearGraduationInput.formControl?.invalid &&
+                yearGraduationInput.formControl?.touched">
+              {{yearGraduationInput.messageError()}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="work accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Работа
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-work group" [formGroup]="workFormGroup">
+        <div class="inp-filed">
+          <mat-label>{{workAuto.label}}</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="workAuto.type" [placeholder]="workAuto.placeholder" [matAutocomplete]="autoWork"
+              [formControl]="workAuto.formControl">
+            <mat-icon matSuffix *ngIf="workAuto.icon" [fontIcon]="workAuto.icon">
+            </mat-icon>
+            <mat-autocomplete #autoWork="matAutocomplete">
+              <mat-option class="option" *ngFor="let value of workAuto.values | async" [value]="value.name">
+                <span>{{value.name}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="workAuto.formControl.invalid && workAuto.formControl.touched">
+              {{ workAuto?.messageError() }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inp-filed year_work">
+          <label>{{workYearInput.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="workYearInput.type" [placeholder]="workYearInput.placeholder"
+              [formControl]="workYearInput.formControl">
+            <mat-icon matSuffix *ngIf="workYearInput.icon" [fontIcon]="workYearInput.icon"></mat-icon>
+            <mat-error *ngIf="workYearInput.formControl?.invalid &&
+              workYearInput.formControl?.touched">
+              {{workYearInput.messageError()}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="work accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Компания и авторство
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form class="group-intel-own group">
+        <div class="fileds">
+          <mat-form-field class="chip-list" appearance="standard">
+            <mat-label>Являетесь ли Вы автором объектов интеллектуальной собственности? Если да, то укажите реквизиты
+              документа</mat-label>
+            <mat-chip-list #chipListOwn>
+              <mat-chip *ngFor="let patent of user?.patents" selected color="primary" (removed)="removePatent(patent)">
+                {{patent}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="Введите номер документа об интеллектуальной собственности..."
+                [matChipInputFor]="chipListOwn" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <form [formGroup]="companyFormGroup" class="group-now-Moscow group-work group">
+        <label>Есть ли своя компания? Если да, то укажите ее название и ИНН</label>
+        <div class="fileds">
+          <div class="inp-filed" *ngFor="let input of work">
+            <mat-form-field appearance="fill">
+              <input matInput [type]="input.type" [formControl]='input.form'
+                [placeholder]="input.placeholder? input.placeholder: ''">
+              <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <div class="button-group">
+    <button mat-raised-button [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Портфолио</button>
+    <button mat-raised-button [ngStyle]="{'background-color':'#3A0BBF'}" color="primary">Команда</button>
+    <button mat-raised-button [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Проекты</button>
+  </div>
+
+  <div class="option-title">
+    <mat-card-title>
+      Информация для участия в программах
+    </mat-card-title>
+  </div>
+
+
+  <mat-accordion class="work accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Хакатоны и цифровые конкурсы
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-work group">
+        <div class="inp-filed" *ngFor="let input of xac1">
+          <label>{{input.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [placeholder]="input.placeholder? input.placeholder: ''">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <form class="group-hack group">
+        <div class="inp-filed" *ngFor="let input of xac2">
+          <label>{{input.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [placeholder]="input.placeholder? input.placeholder: ''">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+          </mat-form-field>
+        </div>
+        <button [ngStyle]="{'border': '1px solid #3A0BBF'}" mat-button color="primary">
+          <mat-icon>add</mat-icon>
+        </button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="work accordion" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Новатор Москвы
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="group-work group">
+        <div class="inp-filed" *ngFor="let input of novMoscow1">
+          <label>{{input.label}}</label>
+          <mat-form-field appearance="fill">
+            <input matInput [type]="input.type" [placeholder]="input.placeholder? input.placeholder: ''">
+            <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <form class="group-now-Moscow group">
+        <label>Есть ли у Вас опыт участия в программах поддержки наукоемких проектов (например, гранты Фонда содействия
+          инновациям)? Если да, то укажите...</label>
+        <div class="fileds">
+          <div class="inp-filed" *ngFor="let input of novMoscow2">
+            <mat-form-field appearance="fill">
+              <input matInput [type]="input.type" [placeholder]="input.placeholder? input.placeholder: ''">
+              <mat-icon matSuffix *ngIf="input.icon" [fontIcon]="input.icon"></mat-icon>
+            </mat-form-field>
+          </div>
+          <button [ngStyle]="{'border': '1px solid #3A0BBF'}" mat-button color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="button-group">
+    <button class="save-btn" (click)="saveData()"
+      [disabled]="mainInfoFormGroup.invalid || genderBirthFormGroup.invalid || positionFormGroup.invalid || contactFormGroup.invalid || educationFormGroup.invalid || workFormGroup.invalid"
+      mat-raised-button color="warn">Сохранить изменения</button>
+    <button mat-raised-button (click)="deleteUser()" [ngStyle]="{'background-color':'#3A0BBF'}" color="primary">Удалить
+      профиль</button>
+    <button mat-raised-button (click)="logout()" [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Выйти из
+      аккаунта</button>
+  </div>
+</div>

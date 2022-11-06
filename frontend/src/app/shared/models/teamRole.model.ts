@@ -1,0 +1,6 @@
+export class TeamRole {
+  static of(obj: any) {
+    return new TeamRole(obj.name ?? '', obj.id ?? 0);
+  }
+  constructor(public name: string, public id?: number) {}
+}

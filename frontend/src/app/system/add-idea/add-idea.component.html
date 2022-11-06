@@ -1,0 +1,80 @@
+<h1 mat-dialog-title>
+  {{data.action=='add'?'В чём заключается Ваша идея?':'Редактирование идеи'}}
+</h1>
+<div class="content" mat-dialog-content>
+  <div class="first">
+    <div class="column left">
+      <img *ngIf="data.idea.url" (click)="onOpenFileDialog()" [src]="data.idea.url">
+      <button *ngIf="!data.idea.url" (click)="onOpenFileDialog()" mat-button>
+        <mat-icon>image</mat-icon>
+      </button>
+      <input [ngStyle]="{'display':'none'}" (change)="fileChange($event)" id="file-input"
+        accept=".jpg, .jpeg, .png, .gif, .bmp" type="file" />
+    </div>
+    <div class="column right">
+      <form [formGroup]="form">
+        <mat-form-field appearance="standard">
+          <mat-label>Доступ к идеи</mat-label>
+          <input matInput placeholder="Укажите..." formControlName="access" [matAutocomplete]="autoAccess">
+          <mat-icon matSuffix>subtitles_off</mat-icon>
+          <mat-autocomplete #autoAccess="matAutocomplete">
+            <mat-option *ngFor="let access of allAccessOrigins" [value]="access.name_ru">
+              {{access.name_ru}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="form.get('access')?.invalid && form.get('access')?.touched">
+            Доступ к идеи должен быть указан
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <mat-label>Название идеи</mat-label>
+          <input matInput placeholder="Укажите..." formControlName="name">
+          <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+          <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+            Название должно быть указано
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="role-chip-list" appearance="standard">
+          <mat-label>Категории</mat-label>
+          <mat-chip-list #chipListRole>
+            <mat-chip [ngStyle]="{'background-color':'#673ab7', 'color':'#fff'}" *ngFor="let tag of data.idea.tags"
+              color="primary" selected (removed)="removeCategory(tag)">
+              {{tag.name}}
+              <button matChipRemove [ngStyle]="{'background-color':'#673ab7','color':'#fff'}">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Новая категория..." #categoryInput [formControl]="categoryCtrl"
+              [matAutocomplete]="autoCat" [matChipInputFor]="chipListRole"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+          </mat-chip-list>
+          <mat-autocomplete #autoCat="matAutocomplete" (optionSelected)="selectedCategory($event)">
+            <mat-option *ngFor="let category of allCategories" [value]="category.name">
+              {{category.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+
+    </div>
+  </div>
+  <form class="textarea" [formGroup]="form">
+    <mat-form-field appearance="standard">
+      <mat-label>Описание</mat-label>
+      <textarea matInput formControlName="description" placeholder="Опишите Вашу идею...">
+      </textarea>
+      <mat-error *ngIf="form.get('description')?.invalid && form.get('description')?.touched">
+        Необходимо описание идеи
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div class="btn-group">
+    <button (click)="getTagsAI()" mat-raised-button color="primary">Рекомендации</button>
+    <button (click)="saveIdea()" [disabled]="form.invalid" [mat-dialog-close]="data" mat-raised-button
+      color="primary">{{data.action=='add'?'Добавить идею':'Сохранить изменения'}}</button>
+  </div>
+</div>

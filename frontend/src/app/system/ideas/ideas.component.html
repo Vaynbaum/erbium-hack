@@ -1,0 +1,44 @@
+<div class="block">
+  <div class="header">
+    <mat-card-title class="title">
+      Мои идеи
+    </mat-card-title>
+    <button>
+      <button (click)="addIdea()" mat-raised-button [ngStyle]="{'background-color':'#FD0C50'}" color="warn">
+        <mat-icon>add</mat-icon>
+        Добавить идею
+      </button>
+    </button>
+  </div>
+  <div class="content">
+    <mat-card *ngFor="let project of projects">
+      <div class="col-left">
+        <div class="info">
+          <mat-card-title>{{project.name}}</mat-card-title>
+          <div class="categories">
+            <div class="title">
+              Категории:
+            </div>
+            <mat-chip-list>
+              <mat-chip color="primary" selected *ngFor="let tag of project.tags">
+                {{tag.tag?.name}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+
+        <button (click)="editIdea(project)" [ngStyle]="{'border': '1px solid #FD0C50'}" mat-button color="warn">
+          <mat-icon>edit</mat-icon>
+          Редактировать
+        </button>
+      </div>
+
+      <div class="col-right">
+        <div class="photo">
+          <img [src]="compileUrl(project.url)">
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  row-gap: 20px;
+  button {
+    margin-left: 20px;
+  }
+  .chart {
+    overflow: hidden;
+  }
+  .option-title {
+    mat-card-title {
+      width: fit-content;
+      border-bottom: 2px solid #3a0bbf;
+    }
+  }
+}
+@media (min-width: 320px) {
+  .option-title,
+  .chart,
+  form {
+    mat-card-title {
+      font-size: 15px;
+    }
+    width: 90%;
+  }
+}
+@media (min-width: 768px) {
+  .block {
+    .option-title,
+    .chart,
+    form {
+      mat-card-title {
+        font-size: 20px;
+      }
+      width: 80%;
+    }
+  }
+}

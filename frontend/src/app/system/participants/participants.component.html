@@ -1,0 +1,88 @@
+<section class="container participants">
+
+    <div class="head">
+        <h1>Все участники</h1>
+    </div>
+
+    <div class="filters">
+        <div class="item finder">
+            <img id="finder-icon" src='../../../assets/images/лупа.png' />
+            <input id="name-input" type="text" placeholder="Поиск по имени" (input)="onNameChange($event)"
+                [value]="nameValue" />
+            <div id="drop" class="drop" [ngClass]="{showed: namesFilter.length != 0}">
+                <p id="drop-options" *ngFor="let item of namesFilter" (click)="setName(item)">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: skillsFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="skills-input" type="text" placeholder="Навыки" readonly (click)="skillsFilter = skills"
+                [value]="skillsValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: skillsFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of skills" (click)="setSkill(item)"
+                    [ngClass]="{chosen: skillsValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: rolesFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="roles-input" type="text" placeholder="Роль" readonly (click)="rolesFilter = roles"
+                [value]="rolesValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: rolesFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of rolesFilter" (click)="setRole(item)"
+                    [ngClass]="{chosen: rolesValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <div class="item select">
+            <img id="select-icon" [ngClass]="{arrowUp: citiesFilter.length != 0 && nameValue.length == 0}"
+                src='../../../assets/images/стрелка.png' />
+            <input id="city-input" type="text" placeholder="Город" readonly (click)="citiesFilter = cities"
+                [value]="citiesValue" [disabled]="nameValue.length != 0" />
+            <div id="drop" class="drop" [ngClass]="{showed: citiesFilter.length != 0 && nameValue.length == 0}">
+                <p id="drop-options" *ngFor="let item of citiesFilter" (click)="setCity(item)"
+                    [ngClass]="{chosen: citiesValue.indexOf(item) != -1}">
+                    {{item}}
+                </p>
+            </div>
+        </div>
+        <button class="icon-btn" (click)="reset()">
+            <img src='../../../assets/images/очистить.png' />
+        </button>
+        <button class="icon-btn" (click)="filter()">
+            <img src='../../../assets/images/галочка.png' />
+        </button>
+    </div>
+
+    <section class="list">
+        <div class="card user" *ngFor="let user of usersFilter">
+            <img class="user-image" src='../../../assets/images/{{user.gender}}.png' />
+            <div class="user-info">
+                <h2 class="user-name">{{user.lastname + ' ' + user.firstname + ' ' + user.patronymic}}</h2>
+                <p class="user-role" *ngFor="let role of user.role">
+                    {{role.teamRole.name}}
+                </p>
+                <p class="user-city">г. {{user.city.name}}</p>
+                <div class="user-skills">
+                    <span class="user-skill" *ngFor="let skill of user.skill">
+                        #{{skill.skill.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="user-btns">
+                <button>
+                  Написать
+                </button>
+                <button>
+                  Пригласить
+                </button>
+            </div>
+        </div>
+    </section>
+
+</section>

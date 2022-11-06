@@ -1,0 +1,17 @@
+export const EMAIL = 'email';
+export const PASSWORD = 'password';
+export const LASTNAME = 'lastname';
+export const FIRSTNAME = 'firstname';
+export const PATRONYMIC = 'patronymic';
+export const COUNTRY = 'country';
+export const CITY = 'city';
+export const GENDER = 'gender';
+export const PHONE = 'phone';
+export const NATIOALITY = 'nationality';
+export const CODE = 'code';
+export const BIRTH = 'birthdate';
+export const EDUCATION = 'university'
+export const SPECIALIZATION = 'specialization'
+export const YEAR_GRADUATION = 'yearGraduation'
+export const EMPLOYMENT= 'employment'
+export const WORKEXPERIENCE= 'workExperience'
