@@ -64,9 +64,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:4200",
-        "erbium-solution.vercel.app",
-        "erbium-solution-5au8cxbu3-vaynbaum.vercel.app",
-        "https://erbium-solution-4g1o9kegs-vaynbaum.vercel.app/",
     ],
     allow_credentials=True,
     allow_methods=["*"],
