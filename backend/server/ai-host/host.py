@@ -107,4 +107,4 @@ async def root(email: str, password: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run("aihelper:app", host="127.0.0.1", port=5200)
+    uvicorn.run("host:app", host="127.0.0.1", port=5200)

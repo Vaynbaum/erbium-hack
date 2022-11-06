@@ -1,0 +1,1199 @@
+{
+  "users": [
+    {
+      "email": "ivanov@mail.com",
+      "password": "11111111",
+      "lastname": "Иванов",
+      "firstname": "Иван",
+      "patronymic": "Иванович",
+      "countryId": 1,
+      "cityId": 1,
+      "nationality": {
+        "id": 1,
+        "name": "Российская Федерация",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/375px-Flag_of_Russia.svg.png"
+      },
+      "gender": "мужской",
+      "phone": "+79527366289",
+      "roleId": 1,
+      "url": "1_1.png",
+      "employmentId": 1,
+      "workExperience": 1572949628561,
+      "achievement": "https://nn.hh.ru/resume/e65cb5870004e0e5110039ed1f495439773270?query=%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2+%D0%98%D0%B2%D0%B0%D0%BD&hhtmFrom=resume_search_result",
+      "patents": [
+        "2201527C2",
+        "220157С4"
+      ],
+      "company": {
+        "name": "ООО Автомойка",
+        "uid": "3664069397"
+      },
+      "education": {
+        "university": {
+          "id": 1,
+          "name": "Нижегородский государственный технический университет им. Р. Е. Алексеева",
+          "cityId": 1
+        },
+        "specialization": {
+          "name": "09.03.02 Информационные системы и технологии",
+          "id": 14
+        },
+        "yearGraduation": "2016"
+      },
+      "id": 1,
+      "birthday": 752878800000
+    },
+    {
+      "email": "v.romankozlov@gmail.com",
+      "password": "11111111",
+      "lastname": "Мельников",
+      "firstname": "Роман",
+      "patronymic": "Васильевич",
+      "countryId": 2,
+      "cityId": 22,
+      "nationality": {
+        "id": 3,
+        "name": "Республика Армения",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/375px-Flag_of_Armenia.svg.png"
+      },
+      "gender": "мужской",
+      "phone": "89644681735",
+      "roleId": 1,
+      "url": "1_1.png",
+      "id": 2
+    },
+    {
+      "email": "yekaterina-ryabinina@internet.ru",
+      "password": "11111111",
+      "lastname": "Вахутина",
+      "firstname": "Екатерина",
+      "patronymic": "Николаевна",
+      "countryId": 1,
+      "cityId": 1,
+      "nationality": {
+        "id": 1,
+        "name": "Российская Федерация",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/375px-Flag_of_Russia.svg.png"
+      },
+      "gender": "женский",
+      "phone": "89308165477",
+      "roleId": 1,
+      "url": "2_1.png",
+      "id": 3
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name_en": "user",
+      "name_ru": "пользователь"
+    },
+    {
+      "id": 2,
+      "name_en": "admin",
+      "name_ru": "администратор"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "firstname": "Иван",
+      "lastname": "Иванов",
+      "patronymic": "Иванович",
+      "email": "ivanov_ivan@mail.ru",
+      "password": "qwertyui",
+      "roleId": 2,
+      "superAdmin": true
+    }
+  ],
+  "universities": [
+    {
+      "id": 1,
+      "name": "Нижегородский государственный технический университет им. Р. Е. Алексеева",
+      "cityId": 1
+    },
+    {
+      "id": 2,
+      "name": "Московский государственный технический университет имени Н. Э. Баумана",
+      "cityId": 2
+    },
+    {
+      "id": 3,
+      "name": "Национальный исследовательский университет «Высшая школа экономики»",
+      "cityId": 1
+    },
+    {
+      "id": 4,
+      "name": "Национальный исследовательский технологический университет МИСИС",
+      "cityId": 2
+    },
+    {
+      "id": 5,
+      "name": "Санкт-Петербургский государственный университет",
+      "cityId": 3
+    },
+    {
+      "id": 6,
+      "name": "Университет ИТМО",
+      "cityId": 3
+    },
+    {
+      "id": 7,
+      "name": "Севастопольский государственный университет",
+      "cityId": 61
+    },
+    {
+      "id": 8,
+      "name": "ФГАОУ ВО ННГУ им. Н. И. Лобачевского",
+      "cityId": 1
+    },
+    {
+      "id": 9,
+      "name": "НГСХА",
+      "cityId": 1
+    },
+    {
+      "id": 10,
+      "name": "Нижегородский государственный лингвистический университет им. Н. А. Добролюбова",
+      "cityId": 1
+    },
+    {
+      "id": 11,
+      "name": "Нижегородский институт управления - филиал РАНХиГС",
+      "cityId": 1
+    }
+  ],
+  "specialties": [
+    {
+      "name": "01.03.01 Математика",
+      "id": 1
+    },
+    {
+      "name": "01.03.02 Прикладная математика и информатика",
+      "id": 2
+    },
+    {
+      "name": "01.03.03 Механика и математическое моделирование",
+      "id": 3
+    },
+    {
+      "name": "01.03.04 Прикладная математика",
+      "id": 4
+    },
+    {
+      "name": "01.03.05 Статистика",
+      "id": 5
+    },
+    {
+      "name": "01.04.02 Прикладная математика и информатика",
+      "id": 6
+    },
+    {
+      "name": "01.04.04 Прикладная математика",
+      "id": 7
+    },
+    {
+      "name": "02.03.01 Математика и компьютерные науки",
+      "id": 8
+    },
+    {
+      "name": "02.03.02 Фундаментальная информатика и информационные технологии",
+      "id": 9
+    },
+    {
+      "name": "02.03.03 Математическое обеспечение и администрирование информационных систем",
+      "id": 10
+    },
+    {
+      "name": "02.04.02 Фундаментальная информатика и информационные технологии",
+      "id": 11
+    },
+    {
+      "name": "02.04.03 Математическое обеспечение и администрирование информационных систем",
+      "id": 12
+    },
+    {
+      "name": "09.03.01 Информатика и вычислительная техника",
+      "id": 13
+    },
+    {
+      "name": "09.03.02 Информационные системы и технологии",
+      "id": 14
+    },
+    {
+      "name": "09.03.03 Прикладная информатика",
+      "id": 15
+    },
+    {
+      "name": "09.04.01 Информатика и вычислительная техника",
+      "id": 16
+    },
+    {
+      "name": "09.04.02 Информационные системы и технологии",
+      "id": 17
+    },
+    {
+      "name": "09.04.03 Прикладная информатика",
+      "id": 18
+    },
+    {
+      "name": "10.03.01 Информационная безопасность",
+      "id": 19
+    },
+    {
+      "name": "10.04.01 Информационная безопасность",
+      "id": 20
+    },
+    {
+      "name": "10.05.01 Компьютерная безопасность",
+      "id": 21
+    },
+    {
+      "name": "10.05.03 Информационная безопасность автоматизированных систем",
+      "id": 22
+    },
+    {
+      "name": "11.03.01 Радиотехника",
+      "id": 23
+    },
+    {
+      "name": "11.03.02 Инфокоммуникационные технологии и системы связи",
+      "id": 24
+    },
+    {
+      "name": "11.03.03 Конструирование и технология электронных средств",
+      "id": 25
+    },
+    {
+      "name": "11.03.04 Электроника и наноэлектроника",
+      "id": 26
+    },
+    {
+      "name": "09.03.02 Информационные системы и технологии",
+      "id": 27
+    },
+    {
+      "name": "09.04.02 Информационные системы и технологии",
+      "id": 28
+    }
+  ],
+  "countries": [
+    {
+      "id": 1,
+      "name": "Российская Федерация",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/375px-Flag_of_Russia.svg.png"
+    },
+    {
+      "id": 2,
+      "name": "Азербайджанская Республика",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/375px-Flag_of_Azerbaijan.svg.png"
+    },
+    {
+      "id": 3,
+      "name": "Республика Армения",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/375px-Flag_of_Armenia.svg.png"
+    },
+    {
+      "id": 4,
+      "name": "Республика Беларусь",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/375px-Flag_of_Belarus.svg.png"
+    },
+    {
+      "id": 5,
+      "name": "Республика Казахстан",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/375px-Flag_of_Kazakhstan.svg.png"
+    },
+    {
+      "id": 6,
+      "name": "Киргизская Республика",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/375px-Flag_of_Kyrgyzstan.svg.png"
+    },
+    {
+      "id": 7,
+      "name": "Республика Молдова",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/375px-Flag_of_Moldova.svg.png"
+    },
+    {
+      "id": 8,
+      "name": "Республика Таджикистан",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/375px-Flag_of_Tajikistan.svg.png"
+    },
+    {
+      "id": 9,
+      "name": "Республика Узбекистан",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/375px-Flag_of_Uzbekistan.svg.png"
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "countryId": 1,
+      "name": "Нижний Новгород"
+    },
+    {
+      "id": 2,
+      "countryId": 1,
+      "name": "Москва"
+    },
+    {
+      "id": 3,
+      "countryId": 1,
+      "name": "Санкт-Петербург"
+    },
+    {
+      "countryId": 1,
+      "name": "Новосибирск",
+      "id": 5
+    },
+    {
+      "countryId": 1,
+      "name": "Екатеринбург",
+      "id": 6
+    },
+    {
+      "countryId": 1,
+      "name": "Казань",
+      "id": 7
+    },
+    {
+      "countryId": 1,
+      "name": "Челябинск",
+      "id": 8
+    },
+    {
+      "countryId": 1,
+      "name": "Самара",
+      "id": 9
+    },
+    {
+      "countryId": 1,
+      "name": "Омск",
+      "id": 10
+    },
+    {
+      "countryId": 1,
+      "name": "Ростов-на-Дону",
+      "id": 11
+    },
+    {
+      "countryId": 1,
+      "name": "Уфа",
+      "id": 12
+    },
+    {
+      "countryId": 1,
+      "name": "Пермь",
+      "id": 13
+    },
+    {
+      "countryId": 1,
+      "name": "Красноярск",
+      "id": 14
+    },
+    {
+      "countryId": 1,
+      "name": "Воронеж",
+      "id": 15
+    },
+    {
+      "countryId": 1,
+      "name": "Волгоград",
+      "id": 16
+    },
+    {
+      "countryId": 1,
+      "name": "Краснодар",
+      "id": 17
+    },
+    {
+      "countryId": 1,
+      "name": "Саратов",
+      "id": 18
+    },
+    {
+      "countryId": 1,
+      "name": "Тюмень",
+      "id": 19
+    },
+    {
+      "countryId": 1,
+      "name": "Тольятти",
+      "id": 20
+    },
+    {
+      "countryId": 1,
+      "name": "Ижевск",
+      "id": 21
+    },
+    {
+      "countryId": 2,
+      "name": "Баку",
+      "id": 22
+    },
+    {
+      "countryId": 2,
+      "name": "Гянджа",
+      "id": 23
+    },
+    {
+      "countryId": 2,
+      "name": "Сумгаит",
+      "id": 24
+    },
+    {
+      "countryId": 2,
+      "name": "Мингечаур",
+      "id": 25
+    },
+    {
+      "countryId": 2,
+      "name": "Хырдалан",
+      "id": 26
+    },
+    {
+      "countryId": 3,
+      "name": "Ереван",
+      "id": 27
+    },
+    {
+      "countryId": 3,
+      "name": "Гюмри",
+      "id": 28
+    },
+    {
+      "countryId": 3,
+      "name": "Ванадзор",
+      "id": 29
+    },
+    {
+      "countryId": 3,
+      "name": "Абовян",
+      "id": 30
+    },
+    {
+      "countryId": 3,
+      "name": "Вагаршапат",
+      "id": 31
+    },
+    {
+      "countryId": 4,
+      "name": "Минск",
+      "id": 32
+    },
+    {
+      "countryId": 4,
+      "name": "Гомель",
+      "id": 33
+    },
+    {
+      "countryId": 4,
+      "name": "Витебск",
+      "id": 34
+    },
+    {
+      "countryId": 4,
+      "name": "Могилёв",
+      "id": 35
+    },
+    {
+      "countryId": 4,
+      "name": "Гродно",
+      "id": 36
+    },
+    {
+      "countryId": 5,
+      "name": "Алматы",
+      "id": 37
+    },
+    {
+      "countryId": 5,
+      "name": "Астана",
+      "id": 38
+    },
+    {
+      "countryId": 5,
+      "name": "Шымкент",
+      "id": 39
+    },
+    {
+      "countryId": 5,
+      "name": "Караганда",
+      "id": 40
+    },
+    {
+      "countryId": 5,
+      "name": "Актобе",
+      "id": 41
+    },
+    {
+      "countryId": 6,
+      "name": "Бишкек",
+      "id": 42
+    },
+    {
+      "countryId": 6,
+      "name": "Ош",
+      "id": 43
+    },
+    {
+      "countryId": 6,
+      "name": "Джалал-Абад",
+      "id": 44
+    },
+    {
+      "countryId": 6,
+      "name": "Каракол",
+      "id": 45
+    },
+    {
+      "countryId": 6,
+      "name": "Кант",
+      "id": 46
+    },
+    {
+      "countryId": 7,
+      "name": "Кишинёв",
+      "id": 47
+    },
+    {
+      "countryId": 7,
+      "name": "Бельцы",
+      "id": 48
+    },
+    {
+      "countryId": 7,
+      "name": "Кахул",
+      "id": 49
+    },
+    {
+      "countryId": 7,
+      "name": "Сороки",
+      "id": 50
+    },
+    {
+      "countryId": 7,
+      "name": "Орхей",
+      "id": 51
+    },
+    {
+      "countryId": 8,
+      "name": "Душанбе",
+      "id": 52
+    },
+    {
+      "countryId": 8,
+      "name": "Худжанд",
+      "id": 53
+    },
+    {
+      "countryId": 8,
+      "name": "Куляб",
+      "id": 54
+    },
+    {
+      "countryId": 8,
+      "name": "Курган-Тюбе",
+      "id": 55
+    },
+    {
+      "countryId": 9,
+      "name": "Ташкент",
+      "id": 56
+    },
+    {
+      "countryId": 9,
+      "name": "Наманган",
+      "id": 57
+    },
+    {
+      "countryId": 9,
+      "name": "Самарканд",
+      "id": 58
+    },
+    {
+      "countryId": 9,
+      "name": "Андижан",
+      "id": 59
+    },
+    {
+      "countryId": 9,
+      "name": "Нукус",
+      "id": 60
+    },
+    {
+      "countryId": 1,
+      "name": "Севастополь",
+      "id": 61
+    }
+  ],
+  "employments": [
+    {
+      "id": 1,
+      "name": "по найму"
+    },
+    {
+      "id": 2,
+      "name": "на себя"
+    },
+    {
+      "id": 3,
+      "name": "без работы"
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Angular"
+    },
+    {
+      "id": 2,
+      "name": "Python"
+    },
+    {
+      "id": 3,
+      "name": "C#"
+    },
+    {
+      "name": "CSS",
+      "id": 4
+    },
+    {
+      "name": "Java",
+      "id": 5
+    },
+    {
+      "name": "Html",
+      "id": 6
+    },
+    {
+      "name": "Json",
+      "id": 7
+    },
+    {
+      "name": "Docker",
+      "id": 8
+    },
+    {
+      "name": "JavaScript",
+      "id": 9
+    },
+    {
+      "name": "C++",
+      "id": 10
+    },
+    {
+      "name": "DataScients ",
+      "id": 11
+    },
+    {
+      "name": "ML",
+      "id": 12
+    },
+    {
+      "name": "Kotlin",
+      "id": 13
+    },
+    {
+      "name": "PostgreSQL",
+      "id": 14
+    },
+    {
+      "name": "MySQL",
+      "id": 15
+    },
+    {
+      "name": "Photoshop",
+      "id": 16
+    },
+    {
+      "name": "MatLab",
+      "id": 17
+    },
+    {
+      "name": "PHP",
+      "id": 18
+    },
+    {
+      "name": "android",
+      "id": 19
+    },
+    {
+      "name": "Баг-трекингы",
+      "id": 20
+    },
+    {
+      "name": "UX/UI",
+      "id": 21
+    },
+    {
+      "name": "Техническая документация",
+      "id": 22
+    },
+    {
+      "name": "Анализ рисков",
+      "id": 23
+    },
+    {
+      "name": "Agile",
+      "id": 24
+    },
+    {
+      "name": "Анализ рисков",
+      "id": 25
+    },
+    {
+      "name": "Стратегическое планирование",
+      "id": 26
+    },
+    {
+      "name": "Финансовая модель",
+      "id": 27
+    },
+    {
+      "name": "Юнит-экономика",
+      "id": 28
+    },
+    {
+      "name": "Информационная безопасность",
+      "id": 29
+    },
+    {
+      "name": "DevSecOps",
+      "id": 30
+    },
+    {
+      "name": "Linux",
+      "id": 31
+    },
+    {
+      "name": "Windows",
+      "id": 32
+    },
+    {
+      "name": "Форензика",
+      "id": 33
+    },
+    {
+      "name": "NodeJS",
+      "id": 34
+    },
+    {
+      "name": "Figma",
+      "id": 35
+    },
+    {
+      "name": "Антивирусная защита",
+      "id": 36
+    },
+    {
+      "name": "Настройка ПО",
+      "id": 37
+    },
+    {
+      "name": "Проектирование сетей",
+      "id": 38
+    }
+  ],
+  "skillsToUsers": [
+    {
+      "id": 1,
+      "skillId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "skillId": 2,
+      "userId": 1
+    }
+  ],
+  "teamRoles": [
+    {
+      "name": "Product-manager",
+      "id": 1
+    },
+    {
+      "name": "Project-manager",
+      "id": 2
+    },
+    {
+      "name": "Тестировщик",
+      "id": 3
+    },
+    {
+      "name": "Frontend-разработчик",
+      "id": 4
+    },
+    {
+      "name": "Backend-разработчик",
+      "id": 5
+    },
+    {
+      "name": "Fullstack-разработчик ",
+      "id": 6
+    },
+    {
+      "name": "Devops-инженер",
+      "id": 7
+    },
+    {
+      "name": "ML-инженер",
+      "id": 8
+    },
+    {
+      "name": "Data scientist",
+      "id": 9
+    },
+    {
+      "name": "Специалист по информационной безопасности",
+      "id": 10
+    },
+    {
+      "name": "UX/UI-дизайн",
+      "id": 11
+    },
+    {
+      "name": "Бизнес-аналитик",
+      "id": 12
+    },
+    {
+      "name": "Маркетолог",
+      "id": 13
+    },
+    {
+      "name": "Юрист ",
+      "id": 14
+    },
+    {
+      "name": "Консультант",
+      "id": 15
+    },
+    {
+      "name": "Эксперт",
+      "id": 16
+    },
+    {
+      "name": "Наставник",
+      "id": 17
+    },
+    {
+      "name": "Инвестор",
+      "id": 18
+    },
+    {
+      "name": "Партнер",
+      "id": 19
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "Erbium"
+    }
+  ],
+  "teamRolesToUsers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "teamRoleId": 9
+    },
+    {
+      "userId": 1,
+      "teamRoleId": 1,
+      "id": 2
+    }
+  ],
+  "projects": [
+    {
+      "name": "Умное расписание «Контроль здоровья» ",
+      "description": "Мобильное приложение для отслеживания уровня сахара и давления.",
+      "accessId": 1,
+      "authorId": 2,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://upload-image-great-idea.herokuapp.com/624381aa5888ff57e7ef4da9cf2413d6",
+      "id": 1
+    },
+    {
+      "name": "Фитнес-приложение «Движение»",
+      "description": "Контроль физической нагрузки, подбор упражнений с учетом характеристик пользователя",
+      "accessId": 2,
+      "authorId": 1,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://upload-image-great-idea.herokuapp.com/b78c97ca6c0142f32769788692fe7347",
+      "id": 2
+    },
+    {
+      "name": "Приложение для мониторинга движения на дорогах",
+      "description": "Приложение по контролю и отслеживанию превышения скорости транспортных средств на дороге",
+      "accessId": 1,
+      "authorId": 1,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://upload-image-great-idea.herokuapp.com/4fb3888ea6a0cca786cb51152b947fed",
+      "id": 3
+    },
+    {
+      "name": "Контроль производственных помещений",
+      "description": " Контроль воздуха в производственных помещениях на ядовитые и радиоактивных вещества. ",
+      "accessId": 1,
+      "authorId": 1,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://upload-image-great-idea.herokuapp.com/c5ba19600c959867b997c9b8aa026197",
+      "id": 4
+    },
+    {
+      "name": "RusVPN",
+      "description": "Создание приложения для анонимного пребывания в сети",
+      "accessId": 1,
+      "authorId": 1,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://upload-image-great-idea.herokuapp.com/68a2c60cb88087e916134e4f31bbe57c",
+      "id": 5
+    }
+  ],
+  "statuses": [
+    {
+      "id": 1,
+      "name": "Поиск эксперта"
+    },
+    {
+      "id": 2,
+      "name": "Поиск разработчика"
+    },
+    {
+      "id": 3,
+      "name": "Поиск инвестора"
+    }
+  ],
+  "accesses": [
+    {
+      "id": 1,
+      "name_en": "all",
+      "name_ru": "Всем"
+    },
+    {
+      "id": 2,
+      "name_en": "expert",
+      "name_ru": "Только экспертам"
+    },
+    {
+      "id": 3,
+      "name_en": "my",
+      "name_ru": "Только мне"
+    }
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "name": "Идея"
+    },
+    {
+      "id": 2,
+      "name": "Проект. Внедрение"
+    },
+    {
+      "id": 3,
+      "name": "Проект. MVP"
+    },
+    {
+      "id": 4,
+      "name": "Проект. Масштабирование"
+    }
+  ],
+  "projectTags": [
+    {
+      "tagId": 29,
+      "projectId": 1,
+      "id": 1
+    },
+    {
+      "tagId": 1,
+      "projectId": 1,
+      "id": 2
+    },
+    {
+      "tagId": 13,
+      "projectId": 2,
+      "id": 3
+    },
+    {
+      "tagId": 24,
+      "projectId": 2,
+      "id": 4
+    },
+    {
+      "tagId": 29,
+      "projectId": 2,
+      "id": 5
+    },
+    {
+      "tagId": 25,
+      "projectId": 3,
+      "id": 6
+    },
+    {
+      "tagId": 2,
+      "projectId": 3,
+      "id": 7
+    },
+    {
+      "tagId": 12,
+      "projectId": 4,
+      "id": 8
+    },
+    {
+      "tagId": 24,
+      "projectId": 4,
+      "id": 9
+    },
+    {
+      "tagId": 5,
+      "projectId": 4,
+      "id": 10
+    },
+    {
+      "tagId": 31,
+      "projectId": 5,
+      "id": 11
+    },
+    {
+      "tagId": 4,
+      "projectId": 5,
+      "id": 12
+    },
+    {
+      "tagId": 18,
+      "projectId": 5,
+      "id": 13
+    }
+  ],
+  "tags": [
+    {
+      "name": "экология",
+      "id": 1
+    },
+    {
+      "name": "транспорт",
+      "id": 2
+    },
+    {
+      "name": "образование",
+      "id": 3
+    },
+    {
+      "name": "технологии",
+      "id": 4
+    },
+    {
+      "name": "анализ-мониторинг",
+      "id": 5
+    },
+    {
+      "name": "устройства",
+      "id": 6
+    },
+    {
+      "name": "материалы",
+      "id": 7
+    },
+    {
+      "name": "медицина",
+      "id": 8
+    },
+    {
+      "name": "энергетика",
+      "id": 9
+    },
+    {
+      "name": "техника",
+      "id": 10
+    },
+    {
+      "name": "индефикация",
+      "id": 11
+    },
+    {
+      "name": "разработка",
+      "id": 12
+    },
+    {
+      "name": "спорт",
+      "id": 13
+    },
+    {
+      "name": "инновации",
+      "id": 14
+    },
+    {
+      "name": "литература",
+      "id": 15
+    },
+    {
+      "name": "AI-приложение",
+      "id": 16
+    },
+    {
+      "name": "UI-приложение",
+      "id": 17
+    },
+    {
+      "name": "веб-сервис",
+      "id": 18
+    },
+    {
+      "name": "чат-бот",
+      "id": 19
+    },
+    {
+      "name": "оптимизация",
+      "id": 20
+    },
+    {
+      "name": "мероприятия",
+      "id": 21
+    },
+    {
+      "name": "одежда-аксессуары",
+      "id": 22
+    },
+    {
+      "name": "опросы",
+      "id": 23
+    },
+    {
+      "name": "безопасность",
+      "id": 24
+    },
+    {
+      "name": "бизнес-инструменты",
+      "id": 25
+    },
+    {
+      "name": "животные",
+      "id": 26
+    },
+    {
+      "name": "растения",
+      "id": 27
+    },
+    {
+      "name": "спорт",
+      "id": 28
+    },
+    {
+      "name": "здоровье",
+      "id": 29
+    },
+    {
+      "name": "обучение",
+      "id": 30
+    },
+    {
+      "name": "it-безопасность",
+      "id": 31
+    }
+  ]
+}
