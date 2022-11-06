@@ -26,7 +26,6 @@
 
 > npm run start
 
-
 Для запуска нейронной сети и отправителя сообщений на почту в директории /backend/server 
 сначала запустить загрузить необходимые библиотеки для этого прописать команды
 
@@ -36,6 +35,13 @@
 
 > python -m nltk.downloader -q Russian wordnet omw-1.4 punkt stopwords
 
-а затем запустить командой
+Перед запуском необходимо ввести ваш email и пароль (для mail.ru пароль внешних приложений) 
+в файле /server/ai-host/host.py 
+```python
+email_sender = "your_email"
+password = "your_password_for_external_applications_email"
+```
+
+Затем запустить командой
 
 > python host.py
