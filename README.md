@@ -45,7 +45,7 @@
 ```python
 ...
 12. email_sender = "your_email"
-13. password = "your_password_for_external_applications_email"
+13. password_mail = "your_password_for_external_applications_email"
 ...
 ```
 
@@ -114,7 +114,7 @@ services:
 ```typescript
 export const URL_DB = 'http://localhost:5300';
 export const URL_MAILER = 'http://localhost:5200';
-export const OWN_URL = 'http://localhost:4200';
+export const OWN_URL = 'http://localhost:4200/assets/images';
 export const URL_UPLOAD_IMAGE = 'http://localhost:5400';
 export const URL_AI = 'http://localhost:5200';
 ```
