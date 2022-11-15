@@ -45,7 +45,7 @@
 ```python
 ...
 12. email_sender = "your_email"
-13. password = "your_password_for_external_applications_email"
+13. password_mail = "your_password_for_external_applications_email"
 ...
 ```
 
