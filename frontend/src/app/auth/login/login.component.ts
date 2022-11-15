@@ -123,7 +123,7 @@ export class LoginComponent implements OnInit {
             if (user) {
               if (user.password == (password as any)) {
                 this.authService.Login(user);
-                this.router.navigate(['/system/project-feed']);
+                this.router.navigate(['/system/main']);
               } else {
                 this.showMessage({
                   text: 'Пароль не верный',

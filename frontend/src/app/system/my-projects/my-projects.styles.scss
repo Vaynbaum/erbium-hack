@@ -1,0 +1,179 @@
+
+
+.fill {
+    width: 70%;
+    height: 100%;
+    background: #FD0C50;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.actuality-sign {
+    font-size: 16px;
+    color: #FD0C50;
+    position: absolute;
+}
+
+.first-sign {
+    left: 0;
+}
+
+.second-sign {
+    left: 70%;
+}
+
+.third-sign {
+    right: 0;
+}
+
+.project-cost {
+    font-size: 24px;
+}
+
+.info-block,
+.marks-block,
+.ideas-block {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.info-btns button {
+    background: #3A0BBF;
+    border-radius: 5px;
+    padding: 6px 17px;
+    color: white
+}
+
+.marks {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mark {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews-block {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.reviews {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review {
+    height: 120px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.review-first {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.review-first img {
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-info p {
+    margin: 0;
+}
+
+.user-name .name {
+    font-size: 16px;
+}
+
+.user-name .role {
+    margin-left: 30px;
+}
+
+.review-text {
+    font-size: 15px;
+}
+
+.answer {
+    color: #AFAFAF;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.review-date {}
+
+.large-text {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+
+
+.carousel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .5rem;
+}
+
+.carousel-items {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow-x: hidden;
+    padding: .3rem;
+}
+
+.carousel-item {
+    min-width: 40%;
+    min-height: 200px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    padding-bottom: 1rem;
+}
+
+.arrow {
+    width: 14px;
+    cursor: pointer;
+}
+
+.right-arrow {
+    transform: rotate(180deg);
+}
+
+.arrow>img {
+    width: 100%;
+}
+

@@ -17,6 +17,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+footer {
+  z-index: 99999;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

@@ -14,6 +14,7 @@ import { ProjectFeedComponent } from './project-feed/project-feed.component';
 
 import { SystemComponent } from './system.component';
 import { AuthGuard } from '../shared/guard/auth.guard';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'account_admin', component: AccountAdminComponent },
       { path: 'project-feed', component: ProjectFeedComponent },
       { path: 'participants', component: ParticipantsComponent },
-      { path: 'ideas', component: IdeasComponent }
+      { path: 'ideas', component: IdeasComponent },
+      { path: 'main', component: MainPageComponent }
     ],
   },
 ];
@@ -36,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SystemRoutingModule {}
+export class SystemRoutingModule { }

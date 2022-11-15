@@ -19,11 +19,60 @@
   </form>
 
   <div class="chart">
-    <google-chart [type]="chart.type" [data]="chart.data" [columns]="chart.columns" [title]="chart.title"
-      [options]="chart.opt">
+    <google-chart [type]="chart.type" (onmouseover)="mouseover($event)" (select)="mouseover($event)" [data]="chart.data"
+      [columns]="chart.columns" [title]="chart.title" [options]="chart.opt">
     </google-chart>
   </div>
 
-  <button mat-raised-button (click)="logout()" [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Выйти из
-    аккаунта</button>
+  <div class="container blocks">
+    <section class="feed">
+      <div class="card" *ngFor="let item of feed; let i = index">
+        <div class="card-info">
+          <div class="card-image">
+            <img src="assets/images/2.png" />
+          </div>
+          <div class="card-header">
+            <h2>{{item.title}}</h2>
+            <span class="badges">
+              <span class="badge">
+                <img src="../../../assets/images/инновация.png" />
+                <span class="number red">{{item.innovation}}</span>
+                <span class="desc red">Инновация</span>
+              </span>
+              <span class="badge">
+                <img src="../../../assets/images/реализация.png" />
+                <span class="number blue">{{item.realization}}</span>
+                <span class="desc blue">Реализация</span>
+              </span>
+            </span>
+          </div>
+          <div class="card-main">
+            <p>{{item.category}}</p>
+            <p>Авторы: {{item.authors.join(', ')}}</p>
+            <p>Стадия: <span class="green">{{item.stage}}</span></p>
+            <p>Актуальность: {{item.actuality}}/10</p>
+            <p>Стоимость: {{item.cost}} р.</p>
+          </div>
+        </div>
+        <div class="card-btns">
+          <button>
+            Открыть
+          </button>
+          <button>
+            Похожие проекты
+          </button>
+          <button>
+            Отправить
+          </button>
+        </div>
+      </div>
+    </section>
+    <button class="out-button" (click)="logout()">
+      Выйти из аккаунта
+    </button>
+  </div>
+
+
+  <!-- <button mat-raised-button (click)="logout()" [ngStyle]="{'background-color':'#FD0C50'}" color="warn">Выйти из
+    аккаунта</button> -->
 </div>

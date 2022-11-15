@@ -13,6 +13,7 @@ import { IdeasComponent } from './ideas/ideas.component';
 import { ParticipantsComponent } from './participants/participants.component';
 import { ProjectFeedComponent } from './project-feed/project-feed.component';
 import { AddIdeaComponent } from './add-idea/add-idea.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddIdeaComponent } from './add-idea/add-idea.component';
     ProjectFeedComponent,
     ParticipantsComponent,
     AddIdeaComponent,
+    MainPageComponent,
   ],
   imports: [CommonModule, SystemRoutingModule, SharedModule, FormsModule],
 })

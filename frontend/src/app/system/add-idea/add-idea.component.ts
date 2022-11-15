@@ -29,9 +29,21 @@ export class AddIdeaComponent implements OnInit {
     ]),
     access: new FormControl('', [Validators.required]),
   });
+  expandForm = new FormGroup({
+    problem: new FormControl(this.data.idea.problem, [Validators.required]),
+    audience: new FormControl(this.data.idea.audience, [Validators.required]),
+    calendarPlan: new FormControl(this.data.idea.calendarPlan, [
+      Validators.required,
+    ]),
+    cost: new FormControl(this.data.idea.cost, [Validators.required]),
+    affect: new FormControl(this.data.idea.affect, [Validators.required]),
+    planGrow: new FormControl(this.data.idea.planGrow, [Validators.required]),
+  });
+  expand = false;
   allAccessOrigins: any[] = [];
   allCategories: any;
   categoryCtrl = new FormControl('');
+  actual: number = 11;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   ideaStage: Stage | null = null;
   compile_values(arr: any[], form: any) {
@@ -54,6 +66,18 @@ export class AddIdeaComponent implements OnInit {
       this.data.idea.tags?.splice(index, 1);
     }
   }
+  colors = [
+    '#EB0901',
+    '#EB2600',
+    '#EB5500',
+    '#EB7001',
+    '#EB9401',
+    '#EBAF00',
+    '#EBCA00',
+    '#6CEB03',
+    '#01EB24',
+    '#00EB4B',
+  ];
   selectedCategory(event: MatAutocompleteSelectedEvent) {
     const value = event.option.viewValue;
     let tag = this.allCategories.find((tag: any) => tag.name == value);
@@ -66,6 +90,11 @@ export class AddIdeaComponent implements OnInit {
   onOpenFileDialog() {
     document.getElementById('file-input')?.click();
   }
+
+  // ditectiveClass(action: number) {
+  //   if (action>=0 && action<=4)return ''
+  //   else if(action>=5 && action<=)
+  // }
   saveIdea() {
     const { name, description, access } = this.form.value;
     if (name && description && access) {
@@ -89,6 +118,12 @@ export class AddIdeaComponent implements OnInit {
             this.data.idea.tags?.push(t);
           }
         });
+        this.projectService
+          .getActual(this.data.idea.tags?.[0].name, description)
+          .subscribe((res: any) => {
+            this.actual = res.txtsim;
+            this.data.actual = this.actual;
+          });
       });
   }
 

@@ -71,10 +71,79 @@
       </mat-error>
     </mat-form-field>
   </form>
+  <form class="textarea" [formGroup]="expandForm">
+    <mat-form-field *ngIf="data.idea.problem || expand" appearance="standard">
+      <mat-label>Проблематика</mat-label>
+      <textarea matInput formControlName="problem" placeholder="Опишите проблематику...">
+      </textarea>
+      <mat-error *ngIf="expandForm.get('problem')?.invalid &&
+        expandForm.get('problem')?.touched">
+        Необходимо описать проблематику
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="data.idea.audience || expand" appearance="standard">
+      <mat-label>Целевая аудитория</mat-label>
+      <textarea matInput formControlName="audience" placeholder="Укажите целевую аудиторию...">
+      </textarea>
+      <mat-error *ngIf="expandForm.get('audience')?.invalid &&
+        expandForm.get('audience')?.touched">
+        Необходимо указать целевую аудиторию
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="data.idea.calendarPlan || expand" appearance="standard">
+      <mat-label>Календарный план</mat-label>
+      <textarea matInput formControlName="calendarPlan" placeholder="Опишите календарный план...">
+      </textarea>
+      <mat-error *ngIf="expandForm.get('calendarPlan')?.invalid &&
+        expandForm.get('calendarPlan')?.touched">
+        Необходимо описать календарный план
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="data.idea.cost || expand" appearance="standard">
+      <mat-label>Стоимость проекта</mat-label>
+      <input type="number" matInput formControlName="cost" placeholder="Укажите стоимость проекта...">
+      <mat-error *ngIf="expandForm.get('cost')?.invalid &&
+        expandForm.get('cost')?.touched">
+        Необходимо указать стоимость проекта
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="data.idea.affect || expand" appearance="standard">
+      <mat-label>Эффект от внедрения</mat-label>
+      <textarea matInput formControlName="affect" placeholder="Опишите эффект от внедрения...">
+      </textarea>
+      <mat-error *ngIf="expandForm.get('affect')?.invalid &&
+        expandForm.get('affect')?.touched">
+        Необходимо описать эффект от внедрения
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="data.idea.planGrow || expand" appearance="standard">
+      <mat-label>План развития</mat-label>
+      <textarea matInput formControlName="planGrow" placeholder="Опишите план развития...">
+      </textarea>
+      <mat-error *ngIf="expandForm.get('planGrow')?.invalid &&
+        expandForm.get('planGrow')?.touched">
+        Необходимо описать план развития
+      </mat-error>
+    </mat-form-field>
+  </form>
 
   <div class="btn-group">
     <button (click)="getTagsAI()" mat-raised-button color="primary">Рекомендации</button>
     <button (click)="saveIdea()" [disabled]="form.invalid" [mat-dialog-close]="data" mat-raised-button
       color="primary">{{data.action=='add'?'Добавить идею':'Сохранить изменения'}}</button>
+    <button *ngIf="data.action=='edit'" (click)="expand=true" mat-raised-button color="primary">Масштабировать</button>
+    <button *ngIf="data.action=='edit' && expand" [disabled]="expandForm.invalid" mat-raised-button
+      color="primary">Перевести в статус проекта</button>
+    <div class="actual" *ngIf="actual>=0 && actual<=10">
+      Актуальность:
+      <div  [ngStyle]="{'background-color':colors[actual]}" class="actual-value">
+        {{actual}}
+      </div>
+    </div>
   </div>
 </div>

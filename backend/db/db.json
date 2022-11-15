@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "ivanov@mail.com",
+      "email": "ivanov@mail.ru",
       "password": "11111111",
       "lastname": "Иванов",
       "firstname": "Иван",
@@ -80,6 +80,48 @@
       "roleId": 1,
       "url": "2_1.png",
       "id": 3
+    },
+    {
+      "email": "mr.vaynbaum@mail.ru",
+      "password": "12345678",
+      "lastname": "Вайнбаум",
+      "firstname": "Денис",
+      "patronymic": "Алексеевич",
+      "countryId": 1,
+      "cityId": 1,
+      "nationality": {
+        "name": "Российская Федерация",
+        "id": 1,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/375px-Flag_of_Russia.svg.png"
+      },
+      "gender": "мужской",
+      "phone": "89524621655",
+      "roleId": 1,
+      "url": "1_1.png",
+      "employmentId": 3,
+      "workExperience": 1668499355788,
+      "achievement": "",
+      "patents": [],
+      "company": null,
+      "education": {
+        "university": {
+          "name": "Нижегородский государственный технический университет им. Р. Е. Алексеева",
+          "cityId": 1,
+          "city": null,
+          "id": 1
+        },
+        "specialization": {
+          "name": "09.03.02 Информационные системы и технологии",
+          "id": 14
+        },
+        "yearGraduation": "2024"
+      },
+      "id": 4,
+      "birthday": 0,
+      "country": null,
+      "city": null,
+      "employment": null,
+      "role": null
     }
   ],
   "roles": [
@@ -682,7 +724,7 @@
       "id": 10
     },
     {
-      "name": "DataScients ",
+      "name": "DataScients",
       "id": 11
     },
     {
@@ -804,6 +846,46 @@
       "id": 2,
       "skillId": 2,
       "userId": 1
+    },
+    {
+      "userId": 4,
+      "skillId": 1,
+      "id": 3
+    },
+    {
+      "userId": 4,
+      "skillId": 2,
+      "id": 4
+    },
+    {
+      "userId": 4,
+      "skillId": 14,
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "skillId": 34,
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "skillId": 9,
+      "id": 8
+    },
+    {
+      "userId": 4,
+      "skillId": 10,
+      "id": 9
+    },
+    {
+      "userId": 4,
+      "skillId": 4,
+      "id": 10
+    },
+    {
+      "userId": 4,
+      "skillId": 6,
+      "id": 11
     }
   ],
   "teamRoles": [
@@ -828,7 +910,7 @@
       "id": 5
     },
     {
-      "name": "Fullstack-разработчик ",
+      "name": "Fullstack-разработчик",
       "id": 6
     },
     {
@@ -860,7 +942,7 @@
       "id": 13
     },
     {
-      "name": "Юрист ",
+      "name": "Юрист",
       "id": 14
     },
     {
@@ -900,6 +982,16 @@
       "userId": 1,
       "teamRoleId": 1,
       "id": 2
+    },
+    {
+      "userId": 4,
+      "teamRoleId": 6,
+      "id": 3
+    },
+    {
+      "userId": 4,
+      "teamRoleId": 3,
+      "id": 4
     }
   ],
   "projects": [
@@ -910,17 +1002,20 @@
       "authorId": 2,
       "stageId": 1,
       "statuses": [],
-      "url": "https://upload-image-great-idea.herokuapp.com/624381aa5888ff57e7ef4da9cf2413d6",
-      "id": 1
+      "url": "https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w",
+      "id": 1,
+      "cost": 0,
+      "actual": 0
     },
     {
       "name": "Фитнес-приложение «Движение»",
       "description": "Контроль физической нагрузки, подбор упражнений с учетом характеристик пользователя",
       "accessId": 2,
       "authorId": 1,
-      "stageId": 1,
       "statuses": [],
-      "url": "https://upload-image-great-idea.herokuapp.com/b78c97ca6c0142f32769788692fe7347",
+      "url": "https://www.iphones.ru/wp-content/uploads/2021/11/DSC04017-1.jpg",
+      "actual": 0,
+      "cost": 0,
       "id": 2
     },
     {
@@ -930,8 +1025,10 @@
       "authorId": 1,
       "stageId": 1,
       "statuses": [],
-      "url": "https://upload-image-great-idea.herokuapp.com/4fb3888ea6a0cca786cb51152b947fed",
-      "id": 3
+      "url": "https://logirus.ru/articles/articles_img/logistika-_bitva_za_-tsifru/gl.jpg",
+      "id": 3,
+      "cost": 0,
+      "actual": 0
     },
     {
       "name": "Контроль производственных помещений",
@@ -940,18 +1037,46 @@
       "authorId": 1,
       "stageId": 1,
       "statuses": [],
-      "url": "https://upload-image-great-idea.herokuapp.com/c5ba19600c959867b997c9b8aa026197",
-      "id": 4
+      "url": "https://www.idisglobal.ru/uploads/900x600_adaptiveResize_galleries_1476_isbc-5.jpg",
+      "id": 4,
+      "cost": 0,
+      "actual": 0
     },
     {
-      "name": "RusVPN",
-      "description": "Создание приложения для анонимного пребывания в сети",
+      "name": "Автоматизированный алгоритм обезличивания данных",
+      "description": "Для начала необходимо ознакомиться с техническим заданием, после чего мы сформулируем постановку задачи и будем выбирать методы ее решения.",
       "accessId": 1,
-      "authorId": 1,
+      "authorId": 3,
       "stageId": 1,
       "statuses": [],
-      "url": "https://upload-image-great-idea.herokuapp.com/68a2c60cb88087e916134e4f31bbe57c",
+      "url": "https://wrapper-back.herokuapp.com/ui/personalnye_dannye_otvety_na_populyarnye_voprosy_1.jpg",
+      "actual": 0,
+      "cost": 0,
       "id": 5
+    },
+    {
+      "name": "Интерактивная карта для размещения спортивной инфраструктуры",
+      "description": "Планируем разработать интерактивную карту в виде веб-приложения и Android приложения (iOs не можем, т.к нет Mac)))  Интерактивные карты, где каждый пользователь может добавить какую-либо информацию о спортивном объекте, оставить комментарий и посмотреть видео, связанное с данным объектом. Технологии: Web - Vue + Lumen. Android - Java || Kotlin.",
+      "accessId": 1,
+      "authorId": 3,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://wrapper-back.herokuapp.com/ui/Ð¡Ð¿Ð¾ÑÑÐ¸Ð²Ð½Ð°Ñ-Ð¸Ð½ÑÑÐ°ÑÑÑÑÐºÑÑÑÐ°.jpg",
+      "actual": 0,
+      "cost": 0,
+      "id": 6
+    },
+    {
+      "name": "Поиск лекарств",
+      "description": "Веб-сервис по заказу и поиску лекарственных препаратов. Предполагает собой удобный интерфейс. Бизнес-модель: B2B, B2C,B2G.",
+      "accessId": 1,
+      "authorId": 4,
+      "stageId": 1,
+      "statuses": [],
+      "url": "https://wrapper-back.herokuapp.com/ui/pills-online-with-the-laptop-pharmacy-service_603843-3826.jpg",
+      "actual": 8,
+      "cost": 0,
+      "id": 7
     }
   ],
   "statuses": [
@@ -1055,19 +1180,39 @@
       "id": 10
     },
     {
-      "tagId": 31,
+      "tagId": 12,
       "projectId": 5,
       "id": 11
     },
     {
-      "tagId": 4,
+      "tagId": 3,
       "projectId": 5,
       "id": 12
     },
     {
-      "tagId": 18,
-      "projectId": 5,
+      "tagId": 13,
+      "projectId": 6,
       "id": 13
+    },
+    {
+      "tagId": 16,
+      "projectId": 6,
+      "id": 14
+    },
+    {
+      "tagId": 12,
+      "projectId": 6,
+      "id": 15
+    },
+    {
+      "tagId": 29,
+      "projectId": 7,
+      "id": 16
+    },
+    {
+      "tagId": 18,
+      "projectId": 7,
+      "id": 17
     }
   ],
   "tags": [

@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-my-projects',
   templateUrl: './my-projects.component.html',
-  styleUrls: ['./my-projects.component.scss']
+  styleUrls: ['./my-projects.component.scss', './my-projects.styles.scss', './my-projects.styles2.scss']
 })
 export class MyProjectsComponent implements OnInit {
 

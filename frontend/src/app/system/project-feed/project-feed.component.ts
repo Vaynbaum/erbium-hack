@@ -63,7 +63,9 @@ export class ProjectFeedComponent implements OnInit {
       innovation: 12,
       realization: 7,
       category: 'Здоровье, Медицина',
-      url: 'https://upload-image-great-idea.herokuapp.com/e9b728ba9ec1887aabcbace1a4b99774',
+
+      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+
     },
     {
       title: 'Фитнес-приложение «Движение»',
@@ -72,7 +74,8 @@ export class ProjectFeedComponent implements OnInit {
       innovation: 45,
       realization: 20,
       category: 'Спорт, Здоровье',
-      url: 'https://upload-image-great-idea.herokuapp.com/836cc97202a7244c862dbca831013642',
+      url: 'https://www.iphones.ru/wp-content/uploads/2021/11/DSC04017-1.jpg',
+
     },
     {
       title: 'Приложение для мониторинга движения на дорогах',
@@ -81,7 +84,8 @@ export class ProjectFeedComponent implements OnInit {
       innovation: 67,
       realization: 100,
       category: 'Транспорт',
-      url: 'https://upload-image-great-idea.herokuapp.com/ef2dbbc8fe4a7475808d40e5f01a93fe',
+      url: 'https://logirus.ru/articles/articles_img/logistika-_bitva_za_-tsifru/gl.jpg',
+
     },
     {
       title: 'Устройства мониторинга температуры тела пассажиров в аэропортах',
@@ -90,7 +94,7 @@ export class ProjectFeedComponent implements OnInit {
       innovation: 7,
       realization: 8,
       category: 'Здоровье ',
-      url: 'https://upload-image-great-idea.herokuapp.com/0a85aac6b74f6f3debf7626ed76b36e0',
+      url: 'https://st4.depositphotos.com/9999814/24255/i/450/depositphotos_242559494-stock-photo-health-insurance-concept-doctor-in.jpg',
     },
     {
       title: 'Контроль производственных помещений',
@@ -99,7 +103,9 @@ export class ProjectFeedComponent implements OnInit {
       innovation: 16,
       realization: 29,
       category: 'Производство, Безопасность',
-      url: 'https://upload-image-great-idea.herokuapp.com/15c8bc51915f2621995d2ecd06cb497c',
+
+      url: 'https://www.idisglobal.ru/uploads/900x600_adaptiveResize_galleries_1476_isbc-5.jpg',
+
     },
   ];
 
@@ -123,7 +129,7 @@ export class ProjectFeedComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onNameChange(event: any) {
     this.nameValue = event.target.value;

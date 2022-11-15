@@ -45,6 +45,8 @@ export class ProjectService {
     return this.http.get<Access[]>(URL_accesses);
   }
 
+  getAllProjectAccess() {}
+
   getAllStages(): Observable<Stage[]> {
     return this.http.get<Stage[]>(URL_stages);
   }
@@ -55,8 +57,18 @@ export class ProjectService {
     );
   }
 
+  getAllProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(URL_projects);
+  }
+
   getTagsAI(obj: any) {
     return this.http.post(`${URL_AI}/tagtext`, obj);
+  }
+
+  getActual(tag: any, description: any) {
+    return this.http.get(`${URL_AI}/actual`, {
+      params: { tag: tag, description: description },
+    });
   }
 
   getStageByName(name: string): Observable<Stage> {

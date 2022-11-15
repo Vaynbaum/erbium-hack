@@ -44,7 +44,31 @@
   }
 }
 
-.btn-group {
+@media (min-width: 320px) {
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .btn-group {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+  }
+}
+.actual {
   display: flex;
-  column-gap: 30px;
+  align-items: center;
+  column-gap: 5px;
+}
+.actual-value {
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  text-align: center;
 }

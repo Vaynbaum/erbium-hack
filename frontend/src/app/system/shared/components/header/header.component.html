@@ -1,32 +1,32 @@
 <header>
   <div class="left">
-    <a class="link-main">
+    <a class="link-main" (click)="feed()">
       <img src="../../../../../assets/images/logo.png" />
     </a>
     <div class="left-links">
-      <a (click)="redirect(link?.link)" *ngFor="let link of leftLinks">
+      <a (click)="redirect(link)" *ngFor="let link of leftLinks">
         <mat-icon matSuffix *ngIf="link.icon" [fontIcon]="link.icon"></mat-icon>
         <span>{{link.name}}</span>
       </a>
     </div>
   </div>
-  <div class="right">
-    <a *ngFor="let link of rightLinks" (click)="redirect(link?.link)">
+  <div class="right" (mouseleave)="account = false">
+    <a *ngFor="let link of rightLinks" (click)="redirect(link)">
       <mat-icon matSuffix *ngIf="link.icon" [fontIcon]="link.icon"></mat-icon>
       <span>{{link.name}}</span>
     </a>
     <a (mouseover)="account = true" class="account">
       <mat-icon matSuffix *ngIf="accountLink.icon" [fontIcon]="accountLink.icon"></mat-icon>
       <span (mouseleave)="account = false" id="account">{{accountLink.name}}</span>
-      <div id="account-links" class="account-links" [ngClass]="{showedAccount: account}" (mouseleave)="account = false">
-        <a *ngFor="let link of accountLink.links" (click)="redirect(link?.link)">
+      <div id="account-links" class="account-links" [ngClass]="{showedAccount: account}" >
+        <a *ngFor="let link of accountLink.links" (click)="redirect(link)">
           {{link.name}}
         </a>
       </div>
     </a>
   </div>
   <div class="container mobile">
-    <a class="link-main">
+    <a class="link-main"  (click)="feed()">
       <img src="../../../../../assets/images/logo.png" />
     </a>
     <div class="menu" (click)="dropToggle()">
@@ -38,13 +38,14 @@
       <div class="links" [ngClass]="{showedLinks: menu}">
 
         <img src="../../../../../assets/images/закрыть.png" (click)="menu = false" />
-        <a *ngFor="let link of leftLinks" (click)="redirect(link?.link)">
+        <a *ngFor="let link of leftLinks" (click)="redirect(link)">
           {{link.name}}
         </a>
-        <a *ngFor="let link of accountLink.links" (click)="redirect(link?.link)">
-
-          {{link.name}}
-        </a>
+        <ng-container *ngFor="let link of accountLink.links">
+          <a *ngIf="link.hide" (click)="redirect(link)">
+            {{link.name}}
+          </a>
+        </ng-container>
       </div>
     </div>
   </div>

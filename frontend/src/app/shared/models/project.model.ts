@@ -13,6 +13,8 @@ export class Project {
       obj.stageId ?? 0,
       obj.statuses ?? [],
       obj.url ?? '',
+      obj.actual ?? 0,
+      obj.cost ?? 0,
       obj.id ?? 0
     );
   }
@@ -24,6 +26,8 @@ export class Project {
     public stageId: number,
     public statuses: string[],
     public url: string,
+    public actual: number,
+    public cost: number,
     public id?: number,
     public access?: Access,
     public stage?: Stage,

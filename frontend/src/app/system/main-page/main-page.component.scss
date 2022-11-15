@@ -1,0 +1,49 @@
+.back {
+    background-image: url('/assets/images/background.png');
+    background-color: black;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 2rem;
+}
+
+.title h1 {
+    font-size: 80px;
+    color: #FFFFFF;
+}
+
+.title hr {
+    width: 400px;
+    border: none;
+    border-top: 1px solid white;
+}
+
+.text {
+    width: 60%;
+    margin-top: 2rem;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 130%;
+    font-weight: 300;
+}
+
+.button {
+    margin-top: 2rem;   
+    padding: 12px 35px;
+    background: #FD0C50;
+    border-radius: 3px;
+    color: white;
+}

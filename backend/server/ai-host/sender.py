@@ -36,4 +36,8 @@ def post(
         if serverSMTP is None:
             return {"mailer_result": "Failed"}
         else:
-            post(serverSMTP, sender, email_reciver, message, subject, password)
+            try:
+                return serverSMTP.sendmail(sender, email_reciver, msg.as_string())
+            except:
+                return {"mailer_result": "Failed"}
+

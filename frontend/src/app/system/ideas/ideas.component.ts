@@ -7,12 +7,13 @@ import { ProjectTag } from 'src/app/shared/models/projectTag.model';
 import { Tag } from 'src/app/shared/models/tag.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProjectService } from 'src/app/shared/services/project.service';
-import { OWN_URL } from 'src/app/shared/urls';
+import { OWN_URL_FOR_IMAGE } from 'src/app/shared/urls';
 import { AddIdeaComponent } from '../add-idea/add-idea.component';
 export interface DialogData {
   idea: Idea;
   action: string;
   project?: Project;
+  actual?: number;
 }
 @Component({
   selector: 'app-ideas',
@@ -28,7 +29,7 @@ export class IdeasComponent implements OnInit {
   ) {}
   compileUrl(url: any) {
     if (url.indexOf('http') >= 0) return url;
-    else return `${OWN_URL}/${url ? url : 'default-image.jpg'}`;
+    else return `${OWN_URL_FOR_IMAGE}/${url ? url : 'default-image.jpg'}`;
   }
   ngOnInit(): void {
     this.projectService
@@ -52,16 +53,21 @@ export class IdeasComponent implements OnInit {
         });
       });
   }
-  convertIdeaToProject(idea: Idea) {
-    return new Project(
+  convertIdeaToProject(idea: Idea, actual: any) {
+    let p = new Project(
       idea.name as string,
       idea.description as string,
       idea.accessId as number,
       idea.authorId as number,
       idea.stageId as number,
       [],
-      idea.url as string
+      idea.url as string,
+      0,
+      0
     );
+    
+    p.actual = actual;
+    return p;
   }
   editIdea(project: Project) {
     let tags = project.tags?.map((tag) => tag.tag);
@@ -88,7 +94,7 @@ export class IdeasComponent implements OnInit {
         if (result.action == EDIT) {
           let idea = result.idea;
           let tags = result?.project?.tags;
-          let convPr = this.convertIdeaToProject(idea);
+          let convPr = this.convertIdeaToProject(idea, result.actual);
           convPr.id = result?.project?.id;
           let tagToAdd: ProjectTag[] = [];
 
@@ -183,7 +189,7 @@ export class IdeasComponent implements OnInit {
       if (result) {
         if (result.action == ADD) {
           let idea = result.idea;
-          let project = this.convertIdeaToProject(idea);
+          let project = this.convertIdeaToProject(idea, result.actual);
           this.projectService.createProject(project).subscribe((pr) => {
             project = pr;
             project.tags = [];

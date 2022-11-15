@@ -51,7 +51,7 @@ import { ThemePalette } from '@angular/material/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Company } from 'src/app/shared/models/company.model';
 import { Education } from 'src/app/shared/models/education.model';
-import { OWN_URL } from 'src/app/shared/urls';
+import { OWN_URL_FOR_IMAGE } from 'src/app/shared/urls';
 enum Ind_Autocomp {
   COUNTRY,
   NATIOALITY,
@@ -442,7 +442,7 @@ export class AccountUserComponent implements OnInit {
 
   compileUrl(url: any) {
     if (url.indexOf('http') >= 0) return url;
-    else return `${OWN_URL}/${url}`;
+    else return `${OWN_URL_FOR_IMAGE}/${url}`;
   }
 
   onSelectCountry(input: any, value: any) {

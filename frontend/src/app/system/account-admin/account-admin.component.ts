@@ -7,12 +7,17 @@ import { Observable } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ProjectService } from 'src/app/shared/services/project.service';
 @Component({
   selector: 'app-account-admin',
   templateUrl: './account-admin.component.html',
-  styleUrls: ['./account-admin.component.scss'],
+  styleUrls: ['./account-admin.component.scss', 'account-admin.styles.scss'],
 })
 export class AccountAdminComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private authService: AuthService) { }
+
   titleTextStyle = {
     // color: '#bd4330',
     italic: false,
@@ -61,6 +66,9 @@ export class AccountAdminComponent implements OnInit {
 
     data: [],
   };
+  mouseover(event: any) {
+    console.log(event.selection[0].row);
+  }
   myControl: any;
   data = [
     {
@@ -104,6 +112,59 @@ export class AccountAdminComponent implements OnInit {
       ],
     },
   ];
+
+  feed: any[] = [
+    {
+      title: 'Веб-сервис “Оценка компетенций” ',
+      authors: ['Петров Игорь', 'Иванова Мария'],
+      stage: 'проект',
+      innovation: 12,
+      realization: 7,
+      category: 'Лидеры инноваций',
+      actuality: 3,
+      cost: '1 000 000',
+      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+
+    },
+    {
+      title: 'Мобильное приложение “Ученик”',
+      authors: ['Петров Игорь', 'Иванова Мария'],
+      stage: 'проект',
+      innovation: 12,
+      realization: 7,
+      category: 'Лидеры инноваций',
+      actuality: 3,
+      cost: '1 000 000',
+      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+
+    },
+    {
+      title: 'Мобильное приложение “Профориентация”',
+      authors: ['Петров Игорь', 'Иванова Мария'],
+      stage: 'проект',
+      innovation: 12,
+      realization: 7,
+      category: 'Лидеры инноваций',
+      actuality: 3,
+      cost: '1 000 000',
+      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+
+    },
+    {
+      title: 'Рекомендательная система по изучению языков',
+      authors: ['Петров Игорь', 'Иванова Мария'],
+      stage: 'проект',
+      innovation: 12,
+      realization: 7,
+      category: 'Лидеры инноваций',
+      actuality: 3,
+      cost: '1 000 000',
+      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+
+    },
+    
+  ];
+
   selectedCategory(event: MatAutocompleteSelectedEvent) {
     const value = event.option.viewValue;
     let f = this.data.find((d) => d.tag == value);
@@ -117,7 +178,6 @@ export class AccountAdminComponent implements OnInit {
     this.authService.Logout();
   }
 
-  constructor(private router: Router, private authService: AuthService) {}
   ngOnInit(): void {
     this.chart.data = this.data[2].values;
     this.myControl = new FormControl(this.data[0].tag);
