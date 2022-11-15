@@ -6,7 +6,7 @@ const middlewares = jsonServer.defaults()
 const server = jsonServer.create()
 server.use(middlewares)
 server.use(router)
-app.use(cors());
+server.use(cors());
 
 const port = process.env.PORT || 3000
 
