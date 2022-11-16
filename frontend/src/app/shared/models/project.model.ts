@@ -15,7 +15,7 @@ export class Project {
       obj.url ?? '',
       obj.actual ?? 0,
       obj.cost ?? 0,
-      obj.id ?? 0
+      obj.id ?? 0,
     );
   }
   constructor(
@@ -32,6 +32,11 @@ export class Project {
     public access?: Access,
     public stage?: Stage,
     public user?: User,
-    public tags?: ProjectTag[]
+    public tags?: ProjectTag[],
+    public problem?: string,
+    public audience?: string,
+    public calendarPlan?: string,
+    public affect?: string,
+    public planGrow?: string
   ) {}
 }

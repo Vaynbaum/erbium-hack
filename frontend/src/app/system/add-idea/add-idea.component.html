@@ -102,7 +102,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field *ngIf="data.idea.cost || expand" appearance="standard">
+    <mat-form-field *ngIf="data.idea.cost != undefined && data.idea.cost>0 || expand" appearance="standard">
       <mat-label>Стоимость проекта</mat-label>
       <input type="number" matInput formControlName="cost" placeholder="Укажите стоимость проекта...">
       <mat-error *ngIf="expandForm.get('cost')?.invalid &&
@@ -136,12 +136,15 @@
     <button (click)="getTagsAI()" mat-raised-button color="primary">Рекомендации</button>
     <button (click)="saveIdea()" [disabled]="form.invalid" [mat-dialog-close]="data" mat-raised-button
       color="primary">{{data.action=='add'?'Добавить идею':'Сохранить изменения'}}</button>
-    <button *ngIf="data.action=='edit'" (click)="expand=true" mat-raised-button color="primary">Масштабировать</button>
-    <button *ngIf="data.action=='edit' && expand" [disabled]="expandForm.invalid" mat-raised-button
-      color="primary">Перевести в статус проекта</button>
+    <button *ngIf="data.action=='edit'" [disabled]="form.invalid" (click)="expend()" mat-raised-button
+      color="primary">Масштабировать</button>
+    <button (click)="growToProject()" *ngIf="data.action=='edit' && expand"
+      [disabled]="expandForm.invalid || form.invalid" mat-raised-button color="primary"
+      [mat-dialog-close]="data">Перевести в статус
+      проекта</button>
     <div class="actual" *ngIf="actual>=0 && actual<=10">
       Актуальность:
-      <div  [ngStyle]="{'background-color':colors[actual]}" class="actual-value">
+      <div [ngStyle]="{'background-color':colors[actual]}" class="actual-value">
         {{actual}}
       </div>
     </div>

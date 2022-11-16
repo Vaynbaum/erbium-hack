@@ -62,11 +62,13 @@ export class IdeasComponent implements OnInit {
       idea.stageId as number,
       [],
       idea.url as string,
-      0,
-      0
+      actual,
+      idea.cost as number
     );
-
-    p.actual = actual;
+    p.problem = idea.problem;
+    p.audience = idea.audience;
+    (p.calendarPlan = idea.calendarPlan), (p.affect = idea.affect);
+    p.planGrow = idea.planGrow;
     return p;
   }
   editIdea(project: Project) {
@@ -78,7 +80,13 @@ export class IdeasComponent implements OnInit {
       project.userId,
       project.stageId,
       project.url,
-      tags as Tag[]
+      tags as Tag[],
+      project.problem,
+      project.audience,
+      project.calendarPlan,
+      project.cost,
+      project.affect,
+      project.planGrow
     );
     const dialogRef = this.dialog.open(AddIdeaComponent, {
       width: '80%',
@@ -139,38 +147,6 @@ export class IdeasComponent implements OnInit {
                 });
             }
           });
-
-          // idea.tags?.forEach((tag) => {
-          //   let find = tags?.find((t) => t.tagId == tag.id);
-          //   if (!find) {
-          //     this.projectService
-          //       .createProjectTag(
-          //         new ProjectTag(tag.id as number, project.id as number)
-          //       )
-          //       .subscribe(() => {});
-          //   }
-          // });
-
-          // tags?.forEach((tag) => {
-          //   let find = idea.tags?.find((t) => t.id == tag.tagId);
-          //   if (!find) {
-          //     this.projectService
-          //       .deleteProjectTag(tag.id as number)
-          //       .subscribe(() => {});
-          //   }
-          // });
-
-          // this.projectService.updateProject(convPr).subscribe((projUp) => {
-          //   const ind = this.projects.indexOf(project);
-          //   if (ind >= 0) {
-          //     this.projects[ind] = projUp;
-          //     this.projectService
-          //       .getTagsByProjects([projUp.id as number])
-          //       .subscribe((tags: any[]) => {
-          //         projUp.tags = tags;
-          //       });
-          //   }
-          // });
         }
       }
     });

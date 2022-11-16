@@ -29,17 +29,21 @@ export class AddIdeaComponent implements OnInit {
     ]),
     access: new FormControl('', [Validators.required]),
   });
+  expandStage: Stage | null = null;
   expandForm = new FormGroup({
     problem: new FormControl(this.data.idea.problem, [Validators.required]),
     audience: new FormControl(this.data.idea.audience, [Validators.required]),
     calendarPlan: new FormControl(this.data.idea.calendarPlan, [
       Validators.required,
     ]),
-    cost: new FormControl(this.data.idea.cost, [Validators.required]),
+    cost: new FormControl(this.data.idea.cost, [
+      Validators.required,
+      Validators.min(0),
+    ]),
     affect: new FormControl(this.data.idea.affect, [Validators.required]),
     planGrow: new FormControl(this.data.idea.planGrow, [Validators.required]),
   });
-  expand = false;
+  expand = this.data.idea.problem ? true : false;
   allAccessOrigins: any[] = [];
   allCategories: any;
   categoryCtrl = new FormControl('');
@@ -91,12 +95,11 @@ export class AddIdeaComponent implements OnInit {
     document.getElementById('file-input')?.click();
   }
 
-  // ditectiveClass(action: number) {
-  //   if (action>=0 && action<=4)return ''
-  //   else if(action>=5 && action<=)
-  // }
   saveIdea() {
     const { name, description, access } = this.form.value;
+    const { problem, audience, calendarPlan, cost, affect, planGrow } =
+      this.expandForm.value;
+
     if (name && description && access) {
       this.data.idea.name = name;
       this.data.idea.description = description;
@@ -104,7 +107,22 @@ export class AddIdeaComponent implements OnInit {
       const ac = this.allAccessOrigins.find((a) => a.name_ru == access);
       this.data.idea.accessId = ac.id;
     }
+    if (this.expandForm.valid) {
+      //@ts-ignore
+      this.data.idea.problem = problem; //@ts-ignore
+      this.data.idea.audience = audience; //@ts-ignore
+      this.data.idea.calendarPlan = calendarPlan; //@ts-ignore
+      this.data.idea.cost = cost; //@ts-ignore
+      this.data.idea.affect = affect; //@ts-ignore
+      this.data.idea.planGrow = planGrow;
+    }
   }
+
+  growToProject() {
+    this.saveIdea();
+    this.data.idea.stageId = this.expandStage?.id;
+  }
+
   getTagsAI() {
     const { description } = this.form.value;
     this.projectService
@@ -142,7 +160,14 @@ export class AddIdeaComponent implements OnInit {
       console.log(console.error);
     }
   }
-
+  expend() {
+    this.expand = true;
+    this.projectService
+      .getStageByName('Проект. Разработка')
+      .subscribe((stage) => {
+        this.expandStage = stage;
+      });
+  }
   ngOnInit(): void {
     this.projectService.getAllAccesses().subscribe((accesses) => {
       this.allAccessOrigins = accesses;

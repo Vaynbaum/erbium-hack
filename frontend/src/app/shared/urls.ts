@@ -1,5 +1,5 @@
-export const URL_DB = 'https://wrapper-back.herokuapp.com/db';
-export const URL_MAILER = 'https://wrapper-back.herokuapp.com';
-export const OWN_URL_FOR_IMAGE = 'https://erbium-solution.vercel.app/assets/images';
-export const URL_UPLOAD_IMAGE = 'https://wrapper-back.herokuapp.com/ui'
-export const URL_AI = 'https://wrapper-back.herokuapp.com';
+export const URL_DB = 'http://localhost:3000';
+export const URL_MAILER = 'http://127.0.0.1:5200';
+export const OWN_URL = 'http://localhost:4200/assets/images';
+export const URL_UPLOAD_IMAGE = 'http://localhost:3001';
+export const URL_AI = 'http://127.0.0.1:5200'
