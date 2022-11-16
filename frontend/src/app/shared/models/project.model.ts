@@ -9,7 +9,7 @@ export class Project {
       obj.name ?? '',
       obj.description ?? '',
       obj.accessId ?? 0,
-      obj.authorId ?? 0,
+      obj.userId ?? 0,
       obj.stageId ?? 0,
       obj.statuses ?? [],
       obj.url ?? '',
@@ -22,7 +22,7 @@ export class Project {
     public name: string,
     public description: string,
     public accessId: number,
-    public authorId: number,
+    public userId: number,
     public stageId: number,
     public statuses: string[],
     public url: string,
@@ -31,7 +31,7 @@ export class Project {
     public id?: number,
     public access?: Access,
     public stage?: Stage,
-    public author?: User,
+    public user?: User,
     public tags?: ProjectTag[]
   ) {}
 }

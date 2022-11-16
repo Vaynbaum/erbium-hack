@@ -1,4 +1,6 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { ProjectService } from 'src/app/shared/services/project.service';
+import { OWN_URL_FOR_IMAGE } from 'src/app/shared/urls';
 
 @Component({
   selector: 'app-project-feed',
@@ -6,7 +8,11 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
   styleUrls: ['./project-feed.component.scss'],
 })
 export class ProjectFeedComponent implements OnInit {
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private projectService: ProjectService
+  ) {
     renderer.listen('document', 'click', (event: Event) => {
       let targets = [
         'name-input',
@@ -54,61 +60,59 @@ export class ProjectFeedComponent implements OnInit {
   trendValue: string = '';
   stageValue: string = '';
   statusValue: string = '';
+  feed: any[] = [];
+  // feed: any[] = [
+  //   {
+  //     title: 'Умное расписание «Контроль здоровья» ',
+  //     authors: ['Петров Игорь', 'Иванова Мария'],
+  //     stage: 'Проект. Внедрение',
+  //     innovation: 12,
+  //     realization: 7,
+  //     category: 'Здоровье, Медицина',
 
-  feed: any[] = [
-    {
-      title: 'Умное расписание «Контроль здоровья» ',
-      authors: ['Петров Игорь', 'Иванова Мария'],
-      stage: 'Проект. Внедрение',
-      innovation: 12,
-      realization: 7,
-      category: 'Здоровье, Медицина',
-
-      url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
-
-    },
-    {
-      title: 'Фитнес-приложение «Движение»',
-      authors: ['Сидоров Иван', 'Сидоров Кирилл'],
-      stage: 'Проект. MVP',
-      innovation: 45,
-      realization: 20,
-      category: 'Спорт, Здоровье',
-      url: 'https://www.iphones.ru/wp-content/uploads/2021/11/DSC04017-1.jpg',
-
-    },
-    {
-      title: 'Приложение для мониторинга движения на дорогах',
-      authors: ['Петров Игорь', 'Иванова Екатерина'],
-      stage: 'Проект. Масштабирование',
-      innovation: 67,
-      realization: 100,
-      category: 'Транспорт',
-      url: 'https://logirus.ru/articles/articles_img/logistika-_bitva_za_-tsifru/gl.jpg',
-
-    },
-    {
-      title: 'Устройства мониторинга температуры тела пассажиров в аэропортах',
-      authors: ['Смирнова Алена'],
-      stage: 'Идея',
-      innovation: 7,
-      realization: 8,
-      category: 'Здоровье ',
-      url: 'https://st4.depositphotos.com/9999814/24255/i/450/depositphotos_242559494-stock-photo-health-insurance-concept-doctor-in.jpg',
-    },
-    {
-      title: 'Контроль производственных помещений',
-      authors: ['Петров Петр'],
-      stage: 'Проект. Внедрение',
-      innovation: 16,
-      realization: 29,
-      category: 'Производство, Безопасность',
-
-      url: 'https://www.idisglobal.ru/uploads/900x600_adaptiveResize_galleries_1476_isbc-5.jpg',
-
-    },
-  ];
-
+  //     url: 'https://images.squarespace-cdn.com/content/v1/57c92dca4402439fa1760b2d/1512753164469-CG7Z36QFA3NSGHDOBGND/strength+training.png?format=750w',
+  //   },
+  //   {
+  //     title: 'Фитнес-приложение «Движение»',
+  //     authors: ['Сидоров Иван', 'Сидоров Кирилл'],
+  //     stage: 'Проект. MVP',
+  //     innovation: 45,
+  //     realization: 20,
+  //     category: 'Спорт, Здоровье',
+  //     url: 'https://www.iphones.ru/wp-content/uploads/2021/11/DSC04017-1.jpg',
+  //   },
+  //   {
+  //     title: 'Приложение для мониторинга движения на дорогах',
+  //     authors: ['Петров Игорь', 'Иванова Екатерина'],
+  //     stage: 'Проект. Масштабирование',
+  //     innovation: 67,
+  //     realization: 100,
+  //     category: 'Транспорт',
+  //     url: 'https://logirus.ru/articles/articles_img/logistika-_bitva_za_-tsifru/gl.jpg',
+  //   },
+  //   {
+  //     title: 'Устройства мониторинга температуры тела пассажиров в аэропортах',
+  //     authors: ['Смирнова Алена'],
+  //     stage: 'Идея',
+  //     innovation: 7,
+  //     realization: 8,
+  //     category: 'Здоровье ',
+  //     url: 'https://st4.depositphotos.com/9999814/24255/i/450/depositphotos_242559494-stock-photo-health-insurance-concept-doctor-in.jpg',
+  //   },
+  //   {
+  //     title: 'Контроль производственных помещений',
+  //     authors: ['Петров Петр'],
+  //     stage: 'Проект. Внедрение',
+  //     innovation: 16,
+  //     realization: 29,
+  //     category: 'Производство, Безопасность',
+  //     url: 'https://www.idisglobal.ru/uploads/900x600_adaptiveResize_galleries_1476_isbc-5.jpg',
+  //   },
+  // ];
+  compileUrl(url: any) {
+    if (url.indexOf('http') >= 0) return url;
+    else return `${OWN_URL_FOR_IMAGE}/${url ? url : 'default-image.jpg'}`;
+  }
   resetFilters(
     name: boolean = false,
     trend: boolean = false,
@@ -129,7 +133,27 @@ export class ProjectFeedComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.projectService.getAllProjectAccess().subscribe((feeds) => {
+      console.log(feeds);
+      this.feed = [];
+      feeds.forEach((feed) => {
+        this.projectService
+          .getTagsByProjects([feed.id as number])
+          .subscribe((tags) => {
+            this.feed.push({
+              title: feed.name,
+              authors: [`${feed.user?.lastname} ${feed.user?.firstname}`],
+              stage: feed.stage?.name,
+              innovation: Math.floor(Math.random() * 50),
+              realization: Math.floor(Math.random() * 50),
+              url: feed.url,
+              category: tags[0].tag?.name,
+            });
+          });
+      });
+    });
+  }
 
   onNameChange(event: any) {
     this.nameValue = event.target.value;

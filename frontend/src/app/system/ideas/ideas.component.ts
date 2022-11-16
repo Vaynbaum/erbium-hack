@@ -65,7 +65,7 @@ export class IdeasComponent implements OnInit {
       0,
       0
     );
-    
+
     p.actual = actual;
     return p;
   }
@@ -75,7 +75,7 @@ export class IdeasComponent implements OnInit {
       project.name,
       project.description,
       project.accessId,
-      project.authorId,
+      project.userId,
       project.stageId,
       project.url,
       tags as Tag[]

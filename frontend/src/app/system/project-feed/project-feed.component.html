@@ -62,7 +62,7 @@
     <section class="feed">
         <div class="card" *ngFor="let item of feed; let i = index">
             <div class="card-image">
-                <img [src]="item.url"/>
+                <img [src]="compileUrl(item.url)"/>
             </div>
             <div class="card-info">
                 <div class="card-header">
@@ -93,21 +93,21 @@
                         Отзыв
                     </button>
                     <span class="badges badges-bottom">
-                        <span class="badge badge-bottom">
+                        <div class="badge badge-bottom">
                             <img src="../../../assets/images/Инвестор.png" />
                             <!-- <span class="number red">{{item.innovation}}</span> -->
                             <span class="desc red">Инвестор</span>
-                        </span>
-                        <span class="badge badge-bottom">
+                        </div>
+                        <div class="badge badge-bottom">
                             <img src="../../../assets/images/Разработчик.png" />
                             <!-- <span class="number blue">{{item.realization}}</span> -->
                             <span class="desc blue">Разработчик</span>
-                        </span>
-                        <span class="badge badge-bottom">
+                        </div>
+                        <div class="badge badge-bottom">
                             <img src="../../../assets/images/Эксперт.png" />
                             <!-- <span class="number blue">{{item.realization}}</span> -->
                             <span class="desc blue">Эксперт</span>
-                        </span>
+                        </div>
                     </span>
                 </div>
             </div>

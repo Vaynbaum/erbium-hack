@@ -45,7 +45,11 @@ export class ProjectService {
     return this.http.get<Access[]>(URL_accesses);
   }
 
-  getAllProjectAccess() {}
+  getAllProjectAccess(): Observable<Project[]> {
+    return this.http.get<Project[]>(
+      `${URL_projects}?accessId=${1}&_expand=access&_expand=stage&_expand=user`
+    );
+  }
 
   getAllStages(): Observable<Stage[]> {
     return this.http.get<Stage[]>(URL_stages);
@@ -53,7 +57,7 @@ export class ProjectService {
 
   getProjectsByUserId(userId: number): Observable<Project[]> {
     return this.http.get<Project[]>(
-      `${URL_projects}?authorId=${userId}&_expand=access&_expand=stage`
+      `${URL_projects}?userId=${userId}&_expand=access&_expand=stage`
     );
   }
 
