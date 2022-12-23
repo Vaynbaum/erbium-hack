@@ -1,7 +1,5 @@
 # erbium-hack
 
-<h2><a  href="https://erbium-solution.vercel.app/">Live Demo</a></h2>
-
 В директории backend
 1. лежат модули для базы данных `db` 
 2. нейронной сети и отправителя сообщений на почту `server`
